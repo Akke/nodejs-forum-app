@@ -1,4 +1,4 @@
-const { getMongooseUniqueErrors } = require("../utils/utils")
+const { getMongooseUniqueFieldErrors } = require("../utils/utils")
 
 const User = require("../models/userModel")
 
@@ -16,7 +16,7 @@ const createUser = async (req, res) => {
         res.status(201).json(doc)
     } catch(error) {
         // check if there are duplicate unique fields
-        const duplicateFieldErrors = getMongooseUniqueErrors(error)
+        const duplicateFieldErrors = getMongooseUniqueFieldErrors(error)
         if(duplicateFieldErrors != null) {
             return res.status(400).json({
                 messages: duplicateFieldErrors

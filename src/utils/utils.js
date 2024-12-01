@@ -2,7 +2,7 @@
     Error Handling for Mongoose "unique" Schema attribute.
     Returns an array with error messages that can be sent as JSON.
 */
-const getMongooseUniqueErrors = (error) => {
+const getMongooseUniqueFieldErrors = (error) => {
     if(error.name === "MongoServerError" && error.code === 11000) {
         let duplicateFields = Object.keys(error.keyPattern)
 
@@ -17,5 +17,5 @@ const getMongooseUniqueErrors = (error) => {
 }
 
 module.exports = {
-    getMongooseUniqueErrors
+    getMongooseUniqueFieldErrors
 }
