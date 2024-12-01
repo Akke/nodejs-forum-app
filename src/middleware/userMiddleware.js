@@ -10,6 +10,13 @@ const validateCreateUser = [
         .withMessage("Password must be at least 8 characters long.")
 ]
 
+const validateDeleteUser = [
+    body("id")
+        .isMongoId()
+        .withMessage("ID must be a valid MongoDB ObjectId.")
+]
+
 module.exports = {
-    validateCreateUser
+    validateCreateUser,
+    validateDeleteUser
 }
