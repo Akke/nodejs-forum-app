@@ -20,12 +20,12 @@ UserSchema.pre("save", async function(next) {
 UserSchema.pre("findOneAndUpdate", async function(next) {
     let update = this.getUpdate()
 
-    if(!update.password)
+    if(!update.$set.password)
         return next()
     
     const saltRounds = 10
 
-    update.password = await bcrypt.hash(update.password, saltRounds)
+    update.$set.password = await bcrypt.hash(update.$set.password, saltRounds)
 
     next()
 })

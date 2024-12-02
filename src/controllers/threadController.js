@@ -33,6 +33,96 @@ const createThread = async (req, res) => {
     }
 }
 
+const deleteThread = async (req, res) => {
+    const { id } = req.params
+
+    try {
+        const findThread = await Thread.findById(id)
+        if(!findThread) {
+            return res.status(404).json({ messages: [`Thread ${id} could not be found.`] })
+        }
+
+        await findThread.deleteOne({ _id: id })
+
+        res.status(200).json({ messages: [`Thread ${id} was deleted successfully.`] })
+    } catch(error) {
+        // other server error
+        console.log(error)
+        res.status(500).send("Server Error")
+    }
+}
+
+const updateThread = async (req, res) => {
+    const { id } = req.params
+    const { title, content, likes, dislikes } = req.body
+
+    if(Object.keys(req.body).length < 1) {
+        return res.status(400).json({ messages: [`Request body is empty.`] })
+    }
+
+    try {
+        const findThread = await Thread.findById(id)
+        if(!findThread) {
+            return res.status(404).json({ messages: [`Thread ${id} could not be found.`] })
+        }
+
+        // schema.pre() does not seem to work with findByIdAndUpdate so we use findOneAndUpdate instead
+        // this is required so that the password can be hashed before it's saved
+        const dataObj = {}
+
+        if(title) dataObj.title = title
+        if(content) dataObj.content = content
+        if(likes) dataObj.likes = likes
+        if(dislikes) dataObj.dislikes = dislikes
+
+        const updatedThread = await Thread.findOneAndUpdate({ _id: id}, { $set: dataObj }, { new: true })
+
+        res.status(200).json({ messages: [`Thread ${id} was updated successfully.`], data: updatedThread })
+    } catch(error) {
+        // other server error
+        console.log(error)
+        res.status(500).send("Server Error")
+    }
+}
+
+const getThread = async (req, res) => {
+    const { id } = req.params 
+
+    try {
+        const findThread = await Thread.findById(id)
+        if(!findThread) {
+            return res.status(404).json({ messages: [`Thread ${id} could not be found.`] })
+        }
+
+        res.status(200).json(findThread)
+    } catch(error) {
+        // other server error
+        console.log(error)
+        res.status(500).send("Server Error")
+    }
+}
+
+const getThreads = async (req, res) => {
+    const { limit, skip } = req.query
+
+    try {
+        const findThreads = await Thread.find({}, {}, { 
+            skip: skip ? skip : 0, 
+            limit: limit ? limit : 15 
+        })
+
+        res.status(200).json(findThreads)
+    } catch(error) {
+        // other server error
+        console.log(error)
+        res.status(500).send("Server Error")
+    }
+}
+
 module.exports = {
-    createThread
+    createThread,
+    deleteThread,
+    updateThread,
+    getThread,
+    getThreads
 }

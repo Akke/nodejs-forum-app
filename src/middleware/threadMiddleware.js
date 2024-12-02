@@ -1,4 +1,4 @@
-const { body, param } = require("express-validator")
+const { body, param, query } = require("express-validator")
 
 const validateCreateThread = [
     body("author")
@@ -23,19 +23,65 @@ const validateCreateThread = [
     body("likes")
         .notEmpty()
         .withMessage("Likes must be present and can not be omitted from the request.")
-        .isNumeric()
-        .withMessage("Likes must be a numeric value.")
-        .isLength({ min: 1 })
-        .withMessage("Likes must be at least 1 character long."),
+        .isInt({ min: 0 })
+        .withMessage("Likes must be at least 0 or higher."),
     body("dislikes")
         .notEmpty()
         .withMessage("Dislikes must be present and can not be omitted from the request.")
-        .isNumeric()
-        .withMessage("Disikes must be a numeric value.")
-        .isLength({ min: 1 })
-        .withMessage("Disikes must be at least 1 character long.")
+        .isInt({ min: 0 })
+        .withMessage("Disikes must be at least 0 or higher.")
+]
+
+const validateDeleteThread = [
+    param("id")
+        .isMongoId()
+        .withMessage("ID must be a valid MongoDB ObjectId.")
+]
+
+const validateUpdateThread = [
+    body("title")
+        .optional()
+        .isString()
+        .withMessage("Title must be a string.")
+        .isLength({ min: 3, max: 30 })
+        .withMessage("Title must be between 3 and 30 characters long."),
+    body("content")
+        .optional()
+        .isString()
+        .withMessage("Content must be a string.")
+        .isLength({ min: 1, max: 1500 })
+        .withMessage("Content must be between 3 and 30 characters long."),
+    body("likes")
+        .optional()
+        .isInt({ min: 1 })
+        .withMessage("Likes must be at least 0 or higher."),
+    body("dislikes")
+        .optional()
+        .isInt({ min: 1 })
+        .withMessage("Dislikes must be at least 0 or higher.")
+]
+
+const validateGetThread = [
+    param("id")
+        .isMongoId()
+        .withMessage("ID must be a valid MongoDB ObjectId.")
+]
+
+const validateGetThreads = [
+    param("limit")
+        .optional()
+        .isInt({ min: 1 })
+        .withMessage("Limit must be at least 1 or higher."),
+    param("skip")
+        .optional()
+        .isInt({ min: 0 })
+        .withMessage("Limit must be at least 0 or higher.")
 ]
 
 module.exports = {
-    validateCreateThread
+    validateCreateThread,
+    validateDeleteThread,
+    validateUpdateThread,
+    validateGetThread,
+    validateGetThreads
 }
