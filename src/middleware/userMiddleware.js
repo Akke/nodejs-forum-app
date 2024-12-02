@@ -1,4 +1,4 @@
-const { body } = require("express-validator")
+const { body, param } = require("express-validator")
 
 const validateCreateUser = [
     body("username")
@@ -11,12 +11,29 @@ const validateCreateUser = [
 ]
 
 const validateDeleteUser = [
-    body("id")
+    param("id")
+        .isMongoId()
+        .withMessage("ID must be a valid MongoDB ObjectId.")
+]
+
+const validateUpdateUser = [
+    param("id")
+        .isMongoId()
+        .withMessage("ID must be a valid MongoDB ObjectId."),
+    body("password")
+        .isLength({ min: 8 })
+        .withMessage("Password must be at least 8 characters long.")
+]
+
+const validateGetUser = [
+    param("id")
         .isMongoId()
         .withMessage("ID must be a valid MongoDB ObjectId.")
 ]
 
 module.exports = {
     validateCreateUser,
-    validateDeleteUser
+    validateDeleteUser,
+    validateUpdateUser,
+    validateGetUser
 }
