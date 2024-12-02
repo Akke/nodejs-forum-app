@@ -40,7 +40,7 @@ const deleteUser = async (req, res) => {
 
         await findUser.deleteOne({ _id: id })
 
-        res.status(201).json({ messages: [`User ${id} was deleted successfully.`] })
+        res.status(200).json({ messages: [`User ${id} was deleted successfully.`] })
     } catch(error) {
         // other server error
         console.log(error)
@@ -50,7 +50,7 @@ const deleteUser = async (req, res) => {
 
 const updateUser = async (req, res) => {
     const { id } = req.params
-    const { password } = req.body.password
+    const { password } = req.body
 
     try {
         const findUser = await User.findById(id)
@@ -58,11 +58,11 @@ const updateUser = async (req, res) => {
             return res.status(404).json({ messages: [`User ${id} could not be found.`] })
         }
 
-        const updatedUser = await findUser.updateOne({ _id: id }, {
+        const updatedUser = await User.updateOne({ _id: id }, {
             password: password
         })
 
-        res.status(201).json({ messages: [`User ${id} was updated successfully.`] })
+        res.status(200).json({ messages: [`User ${id} was updated successfully.`] })
     } catch(error) {
         // other server error
         console.log(error)
@@ -79,7 +79,7 @@ const getUser = async (req, res) => {
             return res.status(404).json({ messages: [`User ${id} could not be found.`] })
         }
 
-        res.status(201).json(findUser)
+        res.status(200).json(findUser)
     } catch(error) {
         // other server error
         console.log(error)

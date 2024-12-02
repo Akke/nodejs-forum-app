@@ -17,4 +17,17 @@ UserSchema.pre("save", async function(next) {
     next()
 })
 
+UserSchema.pre("updateOne", async function(next) {
+    const update = this.getUpdate()
+
+    if(!update.password)
+        return next()
+    
+    const saltRounds = 10
+
+    update.password = await bcrypt.hash(update.password, saltRounds)
+
+    next()
+})
+
 module.exports = mongoose.model("User", UserSchema)
