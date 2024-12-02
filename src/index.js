@@ -12,10 +12,12 @@ connectDB()
 app.use(express.json())
 
 // Import our routes
-const userRoute = require("./routes/userRoute")
-const threadRoute = require("./routes/threadRoute")
+const authRoute = require("./routes/authRoutes")
+const userRoute = require("./routes/userRoutes")
+const threadRoute = require("./routes/threadRoutes")
 
 // Set up our routes
+app.use("/api/auth", authRoute)
 app.use("/api/user", userRoute)
 app.use("/api/thread", threadRoute)
 

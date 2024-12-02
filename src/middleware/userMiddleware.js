@@ -2,11 +2,15 @@ const { body, param } = require("express-validator")
 
 const validateCreateUser = [
     body("username")
+        .notEmpty()
+        .withMessage("Username must be present and can not be omitted from the request.")
         .isAlphanumeric()
         .withMessage("Username must be an alphanumeric value.")
         .isLength({ min: 3, max: 15 })
         .withMessage("Username must contain between 3 and 15 alphanumerical characters."),
     body("password")
+        .notEmpty()
+        .withMessage("Password must be present and can not be omitted from the request.")
         .isString()
         .withMessage("Password must be a string.")
         .isLength({ min: 8 })
