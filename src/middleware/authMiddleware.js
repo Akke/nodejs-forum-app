@@ -20,7 +20,7 @@ const validateAuthSign = [
         .withMessage("Password must be at least 8 characters long.")
 ]
 
-const verifyAuth = async (req, res) => {
+const verifyAuth = async (req, res, next) => {
     const authHeader = req.headers.authorization
 
     if(!authHeader || !authHeader.startsWith("Bearer ")) {

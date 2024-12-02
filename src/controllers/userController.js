@@ -33,6 +33,10 @@ const createUser = async (req, res) => {
 const deleteUser = async (req, res) => {
     const { id } = req.params
 
+    if(req.user.id !== id) {
+        return res.status(401).json({ messages: [`Access denied.`] })
+    }
+
     try {
         const findUser = await User.findById(id)
         if(!findUser) {
@@ -52,6 +56,10 @@ const deleteUser = async (req, res) => {
 const updateUser = async (req, res) => {
     const { id } = req.params
     const { password } = req.body
+
+    if(req.user.id !== id) {
+        return res.status(401).json({ messages: [`Access denied.`] })
+    }
 
     try {
         const findUser = await User.findById(id)

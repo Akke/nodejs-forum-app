@@ -1,4 +1,5 @@
 const express = require("express")
+const path = require("path")
 require("dotenv").config()
 
 // Connect to our database
@@ -20,6 +21,10 @@ const threadRoute = require("./routes/threadRoutes")
 app.use("/api/auth", authRoute)
 app.use("/api/user", userRoute)
 app.use("/api/thread", threadRoute)
+
+app.get("/", (req, res) => {
+    return res.sendFile(path.join(__dirname, "../public/index.html"))
+})
 
 // Start our application
 app.listen(PORT, () => {

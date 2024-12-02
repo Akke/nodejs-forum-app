@@ -3,7 +3,8 @@ const { getMongooseUniqueFieldErrors } = require("../utils/utils")
 const Thread = require("../models/threadModel")
 
 const createThread = async (req, res) => {
-    const { author, title, content, likes, dislikes } = req.body
+    const { title, content, likes, dislikes } = req.body
+    const author = req.user.id
 
     try {
         const newThread = new Thread({
@@ -42,6 +43,10 @@ const deleteThread = async (req, res) => {
             return res.status(404).json({ messages: [`Thread ${id} could not be found.`] })
         }
 
+        if(req.user.id !== findThread.author.toString()) {
+            return res.status(401).json({ messages: [`Access denied.`] })
+        }
+
         await findThread.deleteOne({ _id: id })
 
         res.status(200).json({ messages: [`Thread ${id} was deleted successfully.`] })
@@ -64,6 +69,10 @@ const updateThread = async (req, res) => {
         const findThread = await Thread.findById(id)
         if(!findThread) {
             return res.status(404).json({ messages: [`Thread ${id} could not be found.`] })
+        }
+
+        if(req.user.id !== findThread.author.toString()) {
+            return res.status(401).json({ messages: [`Access denied.`] })
         }
 
         // schema.pre() does not seem to work with findByIdAndUpdate so we use findOneAndUpdate instead
