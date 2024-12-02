@@ -17,8 +17,8 @@ UserSchema.pre("save", async function(next) {
     next()
 })
 
-UserSchema.pre("updateOne", async function(next) {
-    const update = this.getUpdate()
+UserSchema.pre("findOneAndUpdate", async function(next) {
+    let update = this.getUpdate()
 
     if(!update.password)
         return next()

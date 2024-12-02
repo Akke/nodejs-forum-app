@@ -16,6 +16,7 @@ const createUser = async (req, res) => {
         res.status(201).json(doc)
     } catch(error) {
         // check if there are duplicate unique fields
+        // if there are, we return all of them as error messages (getMongooseUniqueFieldErrors generates the messages)
         const duplicateFieldErrors = getMongooseUniqueFieldErrors(error)
         if(duplicateFieldErrors != null) {
             return res.status(400).json({
@@ -58,9 +59,9 @@ const updateUser = async (req, res) => {
             return res.status(404).json({ messages: [`User ${id} could not be found.`] })
         }
 
-        const updatedUser = await User.updateOne({ _id: id }, {
-            password: password
-        })
+        // schema.pre() does not seem to work with findByIdAndUpdate so we use findOneAndUpdate instead
+        // this is required so that the password can be hashed before it's saved
+        const updatedUser = await User.findOneAndUpdate({ _id: id}, { password: password })
 
         res.status(200).json({ messages: [`User ${id} was updated successfully.`] })
     } catch(error) {
