@@ -13,9 +13,11 @@ app.use(express.json())
 
 // Import our routes
 const userRoute = require("./routes/userRoute")
+const threadRoute = require("./routes/threadRoute")
 
 // Set up our routes
 app.use("/api/user", userRoute)
+app.use("/api/thread", threadRoute)
 
 // Start our application
 app.listen(PORT, () => {

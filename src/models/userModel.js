@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt")
 
 const schema = require("../schemas/userSchema")
 
-const UserSchema = new mongoose.Schema(schema)
+const UserSchema = new mongoose.Schema(schema, { timestamps: true })
 
 // encrypt the password
 UserSchema.pre("save", async function(next) {
