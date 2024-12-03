@@ -31,6 +31,19 @@ const signAuth = async (req, res) => {
     }
 }
 
+const getAuth = async (req, res) => {
+    const { token } = req.params
+
+    try {
+        res.status(200).json(req.user)
+    } catch(error) {
+        // other server error
+        console.log(error)
+        res.status(500).send("Server Error")
+    }
+}
+
 module.exports = {
-    signAuth
+    signAuth,
+    getAuth
 }
