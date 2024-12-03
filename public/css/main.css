@@ -52,6 +52,11 @@ html {
   flex-direction: column;
   margin-bottom: 12px;
 }
+.wrapper .left-side-bar .menu ul li.logout {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 24px;
+  margin-top: 24px;
+}
 .wrapper .left-side-bar .menu ul li.current {
   border-right: 3px solid #AE445A;
 }
@@ -184,6 +189,9 @@ html {
 }
 .wrapper .main-container .section-header .fa {
   margin-right: 12px;
+}
+.wrapper .main-container .logout {
+  padding: 24px;
 }
 .wrapper .main-container .login-container .form-errors {
   margin-bottom: 24px;

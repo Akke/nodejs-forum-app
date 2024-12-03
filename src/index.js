@@ -30,8 +30,11 @@ app.get("/", (req, res) => {
 })
 
 app.get("/login", (req, res) => {
-    console.log(req.user)
     return res.sendFile(path.join(__dirname, "../public/login.html"))
+})
+
+app.get("/logout", (req, res) => {
+    return res.sendFile(path.join(__dirname, "../public/logout.html"))
 })
 
 // Start our application

@@ -1,4 +1,8 @@
 
+if(localStorage.getItem("user")) {
+    window.location.href = "/"
+}
+
 const API_URL = "http://localhost:5000/api"
 
 const loginForm = document.querySelector(".login-container form")
@@ -28,6 +32,7 @@ loginForm.addEventListener("submit", async (e) => {
                 const token = data.token
                 if(token) {
                     document.cookie = `jwt=${token}; path=/; Secure; SameSite=Strict`
+                    setUserData()
                     setTimeout(() => {
                         window.location.href = "/"
                     }, 500)
