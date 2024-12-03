@@ -5,9 +5,9 @@ html {
   font-weight: normal;
   font-style: normal;
   font-size: 16px;
-  color: #4f4f4f;
+  color: #cbcedf;
   margin: 0;
-  background: #fff;
+  background: #1A1D2B;
 }
 
 * {
@@ -20,15 +20,14 @@ html {
   width: 100%;
   display: flex;
   flex-direction: row;
-  border-top: 4px solid #006BFF;
 }
 .wrapper .left-side-bar {
   min-height: 100vh;
   width: 15%;
-  border-right: 1px solid rgba(0, 0, 0, 0.06);
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
 }
 .wrapper .left-side-bar .logo {
-  color: #000;
+  color: #fff;
   margin-bottom: 24px;
   font-family: "Bebas Neue", sans-serif;
   margin: 24px;
@@ -38,7 +37,7 @@ html {
   transition: 0.2s color ease;
 }
 .wrapper .left-side-bar .logo a:hover {
-  color: #006BFF;
+  color: #AE445A;
 }
 .wrapper .left-side-bar .menu {
   width: 100%;
@@ -54,17 +53,17 @@ html {
   margin-bottom: 12px;
 }
 .wrapper .left-side-bar .menu ul li.current {
-  border-right: 3px solid #006BFF;
+  border-right: 3px solid #AE445A;
 }
 .wrapper .left-side-bar .menu ul li.current a {
-  background-color: #F4F6FF;
-  color: #000;
+  background-color: #24283b;
+  color: #fff;
 }
 .wrapper .left-side-bar .menu ul li.whats-new a {
-  color: #000;
+  color: #fff;
 }
 .wrapper .left-side-bar .menu ul li.whats-new a .fa {
-  color: #006BFF;
+  color: #AE445A;
 }
 .wrapper .left-side-bar .menu ul li a {
   padding: 12px;
@@ -80,8 +79,8 @@ html {
   font-size: 1.25em;
 }
 .wrapper .left-side-bar .menu ul li a:hover {
-  background-color: #F4F6FF;
-  color: #000;
+  background-color: #24283b;
+  color: #fff;
 }
 .wrapper .main-container {
   width: 85%;
@@ -109,11 +108,11 @@ html {
   outline: none;
   padding: 18px 18px 18px 64px;
   border-radius: 12px;
-  background-color: #F4F6FF;
+  background-color: #24283b;
   width: 100%;
   font-family: inherit;
   font-size: inherit;
-  color: #000;
+  color: #fff;
 }
 .wrapper .main-container .top-bar .user-area {
   margin-left: auto;
@@ -125,7 +124,7 @@ html {
   padding: 6px 24px;
 }
 .wrapper .main-container .top-bar .user-area:hover {
-  background-color: #F4F6FF;
+  background-color: #24283b;
 }
 .wrapper .main-container .top-bar .user-area .avatar {
   height: 48px;
@@ -137,11 +136,11 @@ html {
 .wrapper .main-container .top-bar .user-area .username {
   font-weight: bold;
   margin-right: 12px;
-  color: #000;
+  color: #fff;
 }
 .wrapper .main-container .top-bar .user-area .fa {
   margin-left: 12px;
-  color: #000;
+  color: #fff;
 }
 .wrapper .main-container .breadcrumbs {
   padding: 0 24px;
@@ -163,7 +162,7 @@ html {
   transition: 0.2s color ease;
 }
 .wrapper .main-container .breadcrumbs ul li a:hover {
-  color: #000;
+  color: #fff;
 }
 .wrapper .main-container .breadcrumbs ul li.current {
   font-weight: bold;
@@ -181,7 +180,7 @@ html {
   margin: 24px;
   font-size: 1.5em;
   font-weight: bold;
-  color: #000;
+  color: #fff;
 }
 .wrapper .main-container .section-header .fa {
   margin-right: 12px;
@@ -203,7 +202,7 @@ html {
 }
 .wrapper .main-container .inner-container .left-container .forum-categories ul li {
   border-radius: 12px;
-  background-color: #F4F6FF;
+  background-color: #24283b;
   padding: 24px;
   display: flex;
   flex-direction: row;
@@ -214,7 +213,7 @@ html {
   margin-bottom: 0;
 }
 .wrapper .main-container .inner-container .left-container .forum-categories ul li .icon-wrapper {
-  background-color: #006BFF;
+  background-color: #AE445A;
   border-radius: 12px;
   height: 54px;
   width: 54px;
@@ -233,7 +232,7 @@ html {
 }
 .wrapper .main-container .inner-container .left-container .forum-categories ul li .category-body .category-title {
   font-weight: bold;
-  color: #000;
+  color: #fff;
   align-self: center;
   margin-left: 24px;
   font-size: 1.1em;
@@ -250,7 +249,7 @@ html {
 }
 .wrapper .main-container .inner-container .left-container .forum-categories ul li .category-body .content-count .count .amount {
   font-weight: bold;
-  color: #000;
+  color: #fff;
   font-size: 1.1em;
 }
 .wrapper .main-container .inner-container .left-container .forum-categories ul li .category-body .latest-post {
@@ -271,7 +270,7 @@ html {
 }
 .wrapper .main-container .inner-container .left-container .forum-categories ul li .category-body .latest-post .post-details .post-title a {
   font-weight: bold;
-  color: #000;
+  color: #fff;
   font-size: 1.1em;
 }
 .wrapper .main-container .inner-container .left-container .forum-categories ul li .category-body .latest-post .avatar {
@@ -282,12 +281,11 @@ html {
   border-radius: 12px;
 }
 .wrapper .main-container .inner-container .right-container {
-  width: 25%;
-  margin-left: auto;
-  padding: 0 24px;
+  width: 30%;
+  padding: 0 48px;
 }
 .wrapper .main-container .inner-container .right-container .sidebar-header {
-  color: #000;
+  color: #fff;
   font-size: 1.25em;
   font-weight: bold;
 }
@@ -296,7 +294,7 @@ html {
 }
 .wrapper .main-container .inner-container .right-container .recent-threads {
   margin-bottom: 24px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding-bottom: 24px;
 }
 .wrapper .main-container .inner-container .right-container .recent-threads ul {
@@ -317,7 +315,7 @@ html {
   transition: 0.2s color ease;
 }
 .wrapper .main-container .inner-container .right-container .recent-threads ul li a:hover {
-  color: #000;
+  color: #fff;
 }
 .wrapper .main-container .inner-container .right-container .recent-threads ul li .avatar {
   height: 48px;
@@ -329,7 +327,7 @@ html {
 .wrapper .main-container .inner-container .right-container .recent-threads ul li .thread .title a {
   font-weight: bold;
   font-size: 1.1em;
-  color: #000;
+  color: #fff;
 }
 .wrapper .main-container .inner-container .right-container .recent-threads ul li .thread .user a {
   font-weight: bold;

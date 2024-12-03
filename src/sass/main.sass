@@ -20,15 +20,14 @@ html
     width: 100%
     display: flex
     flex-direction: row
-    border-top: 4px solid $theme-color
 
     .left-side-bar
         min-height: 100vh
         width: 15%
-        border-right: 1px solid rgba(0, 0, 0, 0.06)
+        border-right: 1px solid rgba(0, 0, 0, 0.1)
 
         .logo
-            color: #000
+            color: $text-link-color
             margin-bottom: 24px
             font-family: "Bebas Neue", sans-serif
             margin: 24px
@@ -58,11 +57,11 @@ html
 
                         a
                             background-color: $background-secondary-color
-                            color: #000
+                            color: $text-link-color
 
                     &.whats-new
                         a
-                            color: #000
+                            color: $text-link-color
 
                             .fa
                                 color: $theme-color
@@ -82,7 +81,7 @@ html
 
                         &:hover
                             background-color: $background-secondary-color
-                            color: #000
+                            color: $text-link-color
 
     .main-container
         width: 85%
@@ -114,7 +113,7 @@ html
                     width: 100%
                     font-family: inherit
                     font-size: inherit
-                    color: #000
+                    color: $text-link-color
 
             .user-area
                 margin-left: auto
@@ -138,11 +137,11 @@ html
                 .username
                     font-weight: bold
                     margin-right: 12px
-                    color: #000
+                    color: $text-link-color
                 
                 .fa
                     margin-left: 12px
-                    color: #000
+                    color: $text-link-color
         
         .breadcrumbs
             padding: 0 24px
@@ -164,7 +163,7 @@ html
                         transition: 0.2s color ease
 
                         &:hover
-                            color: #000
+                            color: $text-link-color
 
                     &.current
                         font-weight: bold
@@ -183,7 +182,7 @@ html
             margin: 24px
             font-size: 1.5em
             font-weight: bold
-            color: #000
+            color: $text-link-color
 
             .fa
                 margin-right: 12px
@@ -235,7 +234,7 @@ html
 
                                 .category-title
                                     font-weight: bold
-                                    color: #000
+                                    color: $text-link-color
                                     align-self: center
                                     margin-left: 24px
                                     font-size: 1.1em
@@ -252,7 +251,7 @@ html
 
                                         .amount
                                             font-weight: bold
-                                            color: #000
+                                            color: $text-link-color
                                             font-size: 1.1em
                                 
                                 .latest-post
@@ -275,7 +274,7 @@ html
                                         .post-title
                                             a
                                                 font-weight: bold
-                                                color: #000
+                                                color: $text-link-color
                                                 font-size: 1.1em
 
                                     .avatar
@@ -286,12 +285,11 @@ html
                                             border-radius: 12px
             
             .right-container
-                width: 25%
-                margin-left: auto
-                padding: 0 24px
+                width: 30%
+                padding: 0 48px
 
                 .sidebar-header
-                    color: #000
+                    color: $text-link-color
                     font-size: 1.25em
                     font-weight: bold
 
@@ -300,7 +298,7 @@ html
 
                 .recent-threads
                     margin-bottom: 24px
-                    border-bottom: 1px solid rgba(0, 0, 0, 0.06)
+                    border-bottom: 1px solid rgba(0, 0, 0, 0.1)
                     padding-bottom: 24px
 
                     ul
@@ -321,7 +319,7 @@ html
                                 transition: 0.2s color ease
 
                                 &:hover
-                                    color: #000
+                                    color: $text-link-color
 
                             .avatar
                                 height: 48px
@@ -335,7 +333,7 @@ html
                                     a
                                         font-weight: bold
                                         font-size: 1.1em
-                                        color: #000
+                                        color: $text-link-color
                                 
                                 .user
                                     a
