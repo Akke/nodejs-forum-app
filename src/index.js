@@ -41,6 +41,14 @@ app.get("/register", (req, res) => {
     return res.sendFile(path.join(__dirname, "../public/register.html"))
 })
 
+app.get("/category/:id", (req, res) => {
+    return res.sendFile(path.join(__dirname, "../public/category.html"))
+})
+
+app.get("/threads/:id", (req, res) => {
+    return res.sendFile(path.join(__dirname, "../public/thread.html"))
+})
+
 // Start our application
 app.listen(PORT, () => {
     console.log(`Application running and listening on port ${PORT}.`)

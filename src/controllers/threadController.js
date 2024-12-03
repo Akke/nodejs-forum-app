@@ -103,10 +103,12 @@ const getThread = async (req, res) => {
 }
 
 const getThreads = async (req, res) => {
-    const { limit, skip } = req.query
+    const { limit, skip, category } = req.query
 
     try {
-        const findThreads = await Thread.find({}, {}, { 
+        let query = category ? { category: category } : {}
+
+        const findThreads = await Thread.find(query, {}, { 
             skip: skip ? skip : 0, 
             limit: limit ? limit : 15 
         })

@@ -23,6 +23,7 @@ async function loadCategories() {
                                 <a href="/category/${category._id}">${category.name}</a>
                             </div>
 
+                            <!--
                             <div class="content-count">
                                 <div class="count">
                                     <div class="amount">123</div>
@@ -47,6 +48,7 @@ async function loadCategories() {
                                     <img src="https://avatars.githubusercontent.com/u/6265267?v=4" alt="User Avatar">
                                 </div>
                             </div>
+                            -->
                         </div>
                     `
                     categoryContainer.insertBefore(li, null)
@@ -56,10 +58,6 @@ async function loadCategories() {
     } catch(error) {
         console.log(error)
     }
-}
-
-function createCategoryLiElement() {
-
 }
 
 loadCategories()

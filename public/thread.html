@@ -27,10 +27,23 @@
 
             <div class="menu">
                 <ul>
-                    <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
-                    <li class="current"><a href="#"><i class="fa fa-comment"></i> Forums</a></li>
-                    <li class="whats-new"><a href="#"><i class="fa fa-fire"></i> What's New?</a></li>
-                    <li><a href="#"><i class="fa fa-users"></i> Members</a></li>
+                    <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+                    <li class="current"><a href="/"><i class="fa fa-comment"></i> Forums</a></li>
+                    <li class="whats-new"><a href="/"><i class="fa fa-fire"></i> What's New?</a></li>
+                    <li><a href="/"><i class="fa fa-users"></i> Members</a></li>
+                    <script type="text/javascript">
+                        const menu = document.querySelector(".menu ul")
+                        const lastLink = menu.childNodes[menu.childNodes.length-1]
+                        
+                        if(localStorage.getItem("user")) {
+                            const logoutLink = document.createElement("div")
+                            logoutLink.classList.add("user-area")
+                            logoutLink.innerHTML = `
+                                <li class="logout"><a href="../logout"><i class="fa fa-sign-out"></i> Logout</a></li>
+                            `
+                            lastLink.insertAdjacentElement("afterend", logoutLink)
+                        }
+                    </script>
                 </ul>
             </div>
         </div>
@@ -76,22 +89,37 @@
                 <ul>
                     <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
                     <li><a href="#">Community Forums</a></li>
-                    <li class="current"><a href="#">Logout</a></li>
+                    <li><a href="#">Category</a></li>
+                    <li class="current"><a href="#">Thread</a></li>
                 </ul>
             </div>
 
             <div class="inner-container">
                 <div class="left-container">
-                    <div class="logout">
-                        Logging out... redirecting...
+                    <div class="section-header">
                         <script type="text/javascript">
-                            logout()
-                            window.location.href = "/"
+                            const API_URL_THREAD_GET = `http://localhost:5000/api/thread/${window.location.href.split("threads/")[1]}`
+
+                            const sectionHeaderCategory = document.querySelector(".section-header")
+                            if(sectionHeaderCategory) {
+                                axios.get(API_URL_THREAD_GET)
+                                    .then((response) => {
+                                        if(response.data) {
+                                            sectionHeaderCategory.innerHTML = response.data.title
+                                        }
+                                    })
+                            }
                         </script>
+                    </div>
+
+                    <div class="thread-container">
+                        
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    
+    <script src="../js/thread.js" type="text/javascript"></script>
 </body>
 </html>

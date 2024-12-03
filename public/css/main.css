@@ -267,6 +267,105 @@ input[type=password] {
 .wrapper .main-container .inner-container .left-container {
   width: 70%;
 }
+.wrapper .main-container .inner-container .left-container .thread-container {
+  background-color: #24283b;
+  padding: 24px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: row;
+  margin: 24px;
+  gap: 24px;
+}
+.wrapper .main-container .inner-container .left-container .thread-container .poster {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+}
+.wrapper .main-container .inner-container .left-container .thread-container .poster .username {
+  margin-bottom: 12px;
+}
+.wrapper .main-container .inner-container .left-container .thread-container .poster .username a {
+  font-weight: bold;
+  color: #FFF;
+}
+.wrapper .main-container .inner-container .left-container .thread-container .poster .avatar {
+  height: 120px;
+}
+.wrapper .main-container .inner-container .left-container .thread-container .poster .avatar img {
+  height: 100%;
+  border-radius: 12px;
+}
+.wrapper .main-container .inner-container .left-container .thread-container .body {
+  width: 80%;
+}
+.wrapper .main-container .inner-container .left-container .thread-container .body .footer {
+  display: flex;
+  flex-direction: row;
+}
+.wrapper .main-container .inner-container .left-container .thread-container .body .footer .timestamp {
+  font-size: 0.9em;
+  opacity: 0.75;
+}
+.wrapper .main-container .inner-container .left-container .thread-container .body .footer .reactions {
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  gap: 12px;
+}
+.wrapper .main-container .inner-container .left-container .thread-container .body .footer .reactions button {
+  transition: 0.2s background-color ease;
+}
+.wrapper .main-container .inner-container .left-container .thread-container .body .footer .reactions .likes {
+  background-color: #3a643a;
+}
+.wrapper .main-container .inner-container .left-container .thread-container .body .footer .reactions .likes:hover {
+  background-color: #4d844d;
+}
+.wrapper .main-container .inner-container .left-container .thread-container .body .footer .reactions .dislikes {
+  background-color: #9b3232;
+}
+.wrapper .main-container .inner-container .left-container .thread-container .body .footer .reactions .dislikes:hover {
+  background-color: #c13f3f;
+}
+.wrapper .main-container .inner-container .left-container .categories-threads {
+  margin: 24px;
+}
+.wrapper .main-container .inner-container .left-container .categories-threads .new-thread {
+  margin-bottom: 24px;
+}
+.wrapper .main-container .inner-container .left-container .categories-threads ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #24283b;
+  border-radius: 12px;
+}
+.wrapper .main-container .inner-container .left-container .categories-threads ul li {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 12px;
+}
+.wrapper .main-container .inner-container .left-container .categories-threads ul li:last-child {
+  border: none;
+}
+.wrapper .main-container .inner-container .left-container .categories-threads ul li .avatar {
+  height: 48px;
+}
+.wrapper .main-container .inner-container .left-container .categories-threads ul li .avatar img {
+  height: 100%;
+  border-radius: 12px;
+}
+.wrapper .main-container .inner-container .left-container .categories-threads ul li .details .title {
+  font-weight: bold;
+  color: #fff;
+}
+.wrapper .main-container .inner-container .left-container .categories-threads ul li .details .author a {
+  font-weight: bold;
+}
 .wrapper .main-container .inner-container .left-container .forum-categories {
   margin: 24px;
 }
