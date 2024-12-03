@@ -1,10 +1,346 @@
+@import "abstracts/variables"
+
 body,
 html
-    font-family: "Tahoma"
+    font-family: "Hanken Grotesk", sans-serif
+    font-optical-sizing: auto
+    font-weight: normal
+    font-style: normal
     font-size: 16px
-    color: #000
+    color: $text-color
+    margin: 0
+    background: $background-color
 
 *
     box-sizing: border-box
     color: inherit
     text-decoration: inherit
+
+.wrapper
+    width: 100%
+    display: flex
+    flex-direction: row
+    border-top: 4px solid $theme-color
+
+    .left-side-bar
+        min-height: 100vh
+        width: 15%
+        border-right: 1px solid rgba(0, 0, 0, 0.06)
+
+        .logo
+            color: #000
+            margin-bottom: 24px
+            font-family: "Bebas Neue", sans-serif
+            margin: 24px
+            font-size: 2.5em
+
+            a
+                transition: 0.2s color ease
+
+                &:hover
+                    color: $theme-color
+
+        .menu
+            width: 100%
+
+            ul
+                list-style-type: none
+                margin: 0
+                padding: 0
+
+                li
+                    display: flex
+                    flex-direction: column
+                    margin-bottom: 12px
+
+                    &.current
+                        border-right: 3px solid $theme-color
+
+                        a
+                            background-color: $background-secondary-color
+                            color: #000
+
+                    &.whats-new
+                        a
+                            color: #000
+
+                            .fa
+                                color: $theme-color
+
+                    a
+                        padding: 12px
+                        border-radius: 12px
+                        transition: 0.2s background-color ease
+                        font-weight: bold
+                        align-items: center
+                        display: flex
+                        margin: 0 24px
+
+                        .fa
+                            margin-right: 12px
+                            font-size: 1.25em
+
+                        &:hover
+                            background-color: $background-secondary-color
+                            color: #000
+
+    .main-container
+        width: 85%
+
+        .top-bar
+            display: flex
+            width: 100%
+            padding: 24px
+
+            .search-area
+                width: 30%
+                position: relative
+
+                .fa
+                    font-size: 1.25em
+                    position: absolute
+                    top: 50%
+                    left: 24px
+                    pointer-events: none
+                    transform: translateY(-50%)
+                    margin-top: -2px
+
+                input
+                    border: none
+                    outline: none
+                    padding: 18px 18px 18px 64px
+                    border-radius: 12px
+                    background-color: $background-secondary-color
+                    width: 100%
+                    font-family: inherit
+                    font-size: inherit
+                    color: #000
+
+            .user-area
+                margin-left: auto
+                display: flex
+                cursor: pointer
+                transition: 0.2s background-color ease
+                border-radius: 12px
+                align-items: center
+                padding: 6px 24px
+
+                &:hover
+                    background-color: $background-secondary-color
+
+                .avatar
+                    height: 48px 
+
+                    img
+                        height: 100%
+                        border-radius: 12px
+                
+                .username
+                    font-weight: bold
+                    margin-right: 12px
+                    color: #000
+                
+                .fa
+                    margin-left: 12px
+                    color: #000
+        
+        .breadcrumbs
+            padding: 0 24px
+
+            ul
+                list-style-type: none
+                margin: 0
+                padding: 0
+                display: flex
+                flex-direction: row
+
+                li
+                    padding: 6px 12px 6px 0
+
+                    .fa
+                        margin-right: 6px
+                    
+                    a
+                        transition: 0.2s color ease
+
+                        &:hover
+                            color: #000
+
+                    &.current
+                        font-weight: bold
+
+                    &:last-child
+                        &::after
+                            display: none
+
+                    &::after
+                        font-family: FontAwesome
+                        content: "\f054"
+                        margin-left: 12px
+                        font-size: 0.7em
+        
+        .section-header
+            margin: 24px
+            font-size: 1.5em
+            font-weight: bold
+            color: #000
+
+            .fa
+                margin-right: 12px
+        
+        .inner-container
+            display: flex
+            flex-direction: row
+
+            .left-container
+                width: 70%
+
+                .forum-categories
+                    margin: 24px
+
+                    ul
+                        list-style-type: none
+                        margin: 0
+                        padding: 0
+
+                        li
+                            border-radius: 12px
+                            background-color: $background-secondary-color
+                            padding: 24px
+                            display: flex
+                            flex-direction: row
+                            align-items: center
+                            margin-bottom: 12px
+
+                            &:last-child
+                                margin-bottom: 0
+
+                            .icon-wrapper
+                                background-color: $theme-color
+                                border-radius: 12px
+                                height: 54px
+                                width: 54px
+                                display: flex
+                                justify-content: center
+                                align-items: center
+                                color: #FFF
+
+                                .fa
+                                    font-size: 1.25em
+                            
+                            .category-body
+                                display: flex
+                                flex-direction: row
+                                width: 100%
+
+                                .category-title
+                                    font-weight: bold
+                                    color: #000
+                                    align-self: center
+                                    margin-left: 24px
+                                    font-size: 1.1em
+                                
+                                .content-count
+                                    display: flex
+                                    flex-direction: row
+                                    margin-right: 24px
+                                    align-items: center
+                                    margin-left: auto
+
+                                    .count
+                                        padding: 0 12px
+
+                                        .amount
+                                            font-weight: bold
+                                            color: #000
+                                            font-size: 1.1em
+                                
+                                .latest-post
+                                    display: flex
+                                    flex-direction: row
+                                    align-items: center
+                                    width: 30%
+                                    justify-content: right
+
+                                    .post-details
+                                        display: flex
+                                        flex-direction: column
+                                        text-align: right
+                                        margin-right: 12px
+
+                                        .username
+                                            a
+                                                font-weight: bold
+                                        
+                                        .post-title
+                                            a
+                                                font-weight: bold
+                                                color: #000
+                                                font-size: 1.1em
+
+                                    .avatar
+                                        height: 48px
+
+                                        img
+                                            height: 100%
+                                            border-radius: 12px
+            
+            .right-container
+                width: 25%
+                margin-left: auto
+                padding: 0 24px
+
+                .sidebar-header
+                    color: #000
+                    font-size: 1.25em
+                    font-weight: bold
+
+                    .fa
+                        margin-right: 6px
+
+                .recent-threads
+                    margin-bottom: 24px
+                    border-bottom: 1px solid rgba(0, 0, 0, 0.06)
+                    padding-bottom: 24px
+
+                    ul
+                        list-style-type: none
+                        margin: 24px 0 0 0
+                        padding: 0
+
+                        li
+                            display: flex
+                            flex-direction: row
+                            gap: 24px
+                            margin-bottom: 12px
+
+                            &:last-child
+                                margin-bottom: 0
+
+                            a
+                                transition: 0.2s color ease
+
+                                &:hover
+                                    color: #000
+
+                            .avatar
+                                height: 48px
+
+                                img
+                                    height: 100%
+                                    border-radius: 12px
+                                
+                            .thread
+                                .title
+                                    a
+                                        font-weight: bold
+                                        font-size: 1.1em
+                                        color: #000
+                                
+                                .user
+                                    a
+                                        font-weight: bold
+                                
+                                .category
+                                    a
+                                        font-weight: bold

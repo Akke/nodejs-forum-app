@@ -11,6 +11,7 @@ const PORT = process.env.APP_PORT
 connectDB()
 
 app.use(express.json())
+app.use(express.static("../public"))
 
 // Import our routes
 const authRoute = require("./routes/authRoutes")

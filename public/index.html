@@ -3,9 +3,453 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/main.css">
+
+    <title>A Completely Normal Forum</title>
 </head>
 <body>
-    
+    <div class="wrapper">
+        <div class="left-side-bar">
+            <div class="logo">
+                <a href="/">Forums</a>
+            </div>
+
+            <div class="menu">
+                <ul>
+                    <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                    <li class="current"><a href="#"><i class="fa fa-comment"></i> Forums</a></li>
+                    <li class="whats-new"><a href="#"><i class="fa fa-fire"></i> What's New?</a></li>
+                    <li><a href="#"><i class="fa fa-users"></i> Members</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="main-container">
+            <div class="top-bar">
+                <div class="search-area">
+                    <i class="fa fa-search"></i>
+                    <input type="text" name="search" placeholder="Search by topic, author or category...">
+                </div>
+
+                <div class="user-area">
+                    <div class="username">TestUser123</div>
+                    <div class="avatar">
+                        <img src="https://avatars.githubusercontent.com/u/6265267?v=4" alt="User Avatar">
+                    </div>
+                    <i class="fa fa-chevron-down"></i>
+                </div>
+            </div>
+
+            <div class="breadcrumbs">
+                <ul>
+                    <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                    <li class="current"><a href="#">Community Forums</a></li>
+                </ul>
+            </div>
+
+            <div class="inner-container">
+                <div class="left-container">
+                    <div class="section-header"><i class="fa fa-comments"></i> Community Forums</div>
+
+                    <div class="forum-categories">
+                        <ul>
+                            <li>
+                                <div class="icon-wrapper">
+                                    <i class="fa fa-home"></i>
+                                </div>
+        
+                                <div class="category-body">
+                                    <div class="category-title">
+                                        <a href="#">First Category</a>
+                                    </div>
+        
+                                    <div class="content-count">
+                                        <div class="count">
+                                            <div class="amount">123</div>
+                                            <div class="description">Threads</div>
+                                        </div>
+                                        <div class="count">
+                                            <div class="amount">1234</div>
+                                            <div class="description">Messages</div>
+                                        </div>
+                                    </div>
+        
+                                    <div class="latest-post">
+                                        <div class="post-details">
+                                            <div class="post-title">
+                                                <a href="#">Lorem ipsum dolor sit amet...</a>
+                                            </div>
+                                            <div class="username">
+                                                Created by <a href="#">TestUser123</a>
+                                            </div>
+                                        </div>
+                                        <div class="avatar">
+                                            <img src="https://avatars.githubusercontent.com/u/6265267?v=4" alt="User Avatar">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+        
+                            <li>
+                                <div class="icon-wrapper">
+                                    <i class="fa fa-home"></i>
+                                </div>
+        
+                                <div class="category-body">
+                                    <div class="category-title">
+                                        <a href="#">First Category</a>
+                                    </div>
+        
+                                    <div class="content-count">
+                                        <div class="count">
+                                            <div class="amount">123</div>
+                                            <div class="description">Threads</div>
+                                        </div>
+                                        <div class="count">
+                                            <div class="amount">1234</div>
+                                            <div class="description">Messages</div>
+                                        </div>
+                                    </div>
+        
+                                    <div class="latest-post">
+                                        <div class="post-details">
+                                            <div class="post-title">
+                                                <a href="#">Lorem ipsum dolor sit amet...</a>
+                                            </div>
+                                            <div class="username">
+                                                Created by <a href="#">TestUser123</a>
+                                            </div>
+                                        </div>
+                                        <div class="avatar">
+                                            <img src="https://avatars.githubusercontent.com/u/6265267?v=4" alt="User Avatar">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+        
+                            <li>
+                                <div class="icon-wrapper">
+                                    <i class="fa fa-home"></i>
+                                </div>
+        
+                                <div class="category-body">
+                                    <div class="category-title">
+                                        <a href="#">First Category</a>
+                                    </div>
+        
+                                    <div class="content-count">
+                                        <div class="count">
+                                            <div class="amount">123</div>
+                                            <div class="description">Threads</div>
+                                        </div>
+                                        <div class="count">
+                                            <div class="amount">1234</div>
+                                            <div class="description">Messages</div>
+                                        </div>
+                                    </div>
+        
+                                    <div class="latest-post">
+                                        <div class="post-details">
+                                            <div class="post-title">
+                                                <a href="#">Lorem ipsum dolor sit amet...</a>
+                                            </div>
+                                            <div class="username">
+                                                Created by <a href="#">TestUser123</a>
+                                            </div>
+                                        </div>
+                                        <div class="avatar">
+                                            <img src="https://avatars.githubusercontent.com/u/6265267?v=4" alt="User Avatar">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+        
+                            <li>
+                                <div class="icon-wrapper">
+                                    <i class="fa fa-home"></i>
+                                </div>
+        
+                                <div class="category-body">
+                                    <div class="category-title">
+                                        <a href="#">First Category</a>
+                                    </div>
+        
+                                    <div class="content-count">
+                                        <div class="count">
+                                            <div class="amount">123</div>
+                                            <div class="description">Threads</div>
+                                        </div>
+                                        <div class="count">
+                                            <div class="amount">1234</div>
+                                            <div class="description">Messages</div>
+                                        </div>
+                                    </div>
+        
+                                    <div class="latest-post">
+                                        <div class="post-details">
+                                            <div class="post-title">
+                                                <a href="#">Lorem ipsum dolor sit amet...</a>
+                                            </div>
+                                            <div class="username">
+                                                Created by <a href="#">TestUser123</a>
+                                            </div>
+                                        </div>
+                                        <div class="avatar">
+                                            <img src="https://avatars.githubusercontent.com/u/6265267?v=4" alt="User Avatar">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+        
+                            <li>
+                                <div class="icon-wrapper">
+                                    <i class="fa fa-home"></i>
+                                </div>
+        
+                                <div class="category-body">
+                                    <div class="category-title">
+                                        <a href="#">First Category</a>
+                                    </div>
+        
+                                    <div class="content-count">
+                                        <div class="count">
+                                            <div class="amount">123</div>
+                                            <div class="description">Threads</div>
+                                        </div>
+                                        <div class="count">
+                                            <div class="amount">1234</div>
+                                            <div class="description">Messages</div>
+                                        </div>
+                                    </div>
+        
+                                    <div class="latest-post">
+                                        <div class="post-details">
+                                            <div class="post-title">
+                                                <a href="#">Lorem ipsum dolor sit amet...</a>
+                                            </div>
+                                            <div class="username">
+                                                Created by <a href="#">TestUser123</a>
+                                            </div>
+                                        </div>
+                                        <div class="avatar">
+                                            <img src="https://avatars.githubusercontent.com/u/6265267?v=4" alt="User Avatar">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="right-container">
+                    <div class="recent-threads">
+                        <div class="sidebar-header">
+                            <i class="fa fa-fire-flame-curved"></i>
+                            Popular Threads
+                        </div>
+                        
+                        <ul>
+                            <li>
+                                <div class="avatar">
+                                    <img src="https://avatars.githubusercontent.com/u/6265267?v=4" alt="User Avatar">
+                                </div>
+
+                                <div class="thread">
+                                    <div class="title">
+                                        <a href="#">Lorem Ipsum dolor sit amet...</a>
+                                    </div>
+
+                                    <div class="user">
+                                        Created by <a href="#">TestUser123</a>
+                                    </div>
+
+                                    <div class="category">in <a href="#">First Category</a></div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="avatar">
+                                    <img src="https://avatars.githubusercontent.com/u/6265267?v=4" alt="User Avatar">
+                                </div>
+
+                                <div class="thread">
+                                    <div class="title">
+                                        <a href="#">Lorem Ipsum dolor sit amet...</a>
+                                    </div>
+
+                                    <div class="user">
+                                        Created by <a href="#">TestUser123</a>
+                                    </div>
+
+                                    <div class="category">in <a href="#">First Category</a></div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="avatar">
+                                    <img src="https://avatars.githubusercontent.com/u/6265267?v=4" alt="User Avatar">
+                                </div>
+
+                                <div class="thread">
+                                    <div class="title">
+                                        <a href="#">Lorem Ipsum dolor sit amet...</a>
+                                    </div>
+
+                                    <div class="user">
+                                        Created by <a href="#">TestUser123</a>
+                                    </div>
+
+                                    <div class="category">in <a href="#">First Category</a></div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="avatar">
+                                    <img src="https://avatars.githubusercontent.com/u/6265267?v=4" alt="User Avatar">
+                                </div>
+
+                                <div class="thread">
+                                    <div class="title">
+                                        <a href="#">Lorem Ipsum dolor sit amet...</a>
+                                    </div>
+
+                                    <div class="user">
+                                        Created by <a href="#">TestUser123</a>
+                                    </div>
+
+                                    <div class="category">in <a href="#">First Category</a></div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="avatar">
+                                    <img src="https://avatars.githubusercontent.com/u/6265267?v=4" alt="User Avatar">
+                                </div>
+
+                                <div class="thread">
+                                    <div class="title">
+                                        <a href="#">Lorem Ipsum dolor sit amet...</a>
+                                    </div>
+
+                                    <div class="user">
+                                        Created by <a href="#">TestUser123</a>
+                                    </div>
+
+                                    <div class="category">in <a href="#">First Category</a></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="recent-threads">
+                        <div class="sidebar-header">
+                            <i class="fa fa-clock-rotate-left"></i>
+                            Recent Threads
+                        </div>
+                        
+                        <ul>
+                            <li>
+                                <div class="avatar">
+                                    <img src="https://avatars.githubusercontent.com/u/6265267?v=4" alt="User Avatar">
+                                </div>
+
+                                <div class="thread">
+                                    <div class="title">
+                                        <a href="#">Lorem Ipsum dolor sit amet...</a>
+                                    </div>
+
+                                    <div class="user">
+                                        Created by <a href="#">TestUser123</a>
+                                    </div>
+
+                                    <div class="category">in <a href="#">First Category</a></div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="avatar">
+                                    <img src="https://avatars.githubusercontent.com/u/6265267?v=4" alt="User Avatar">
+                                </div>
+
+                                <div class="thread">
+                                    <div class="title">
+                                        <a href="#">Lorem Ipsum dolor sit amet...</a>
+                                    </div>
+
+                                    <div class="user">
+                                        Created by <a href="#">TestUser123</a>
+                                    </div>
+
+                                    <div class="category">in <a href="#">First Category</a></div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="avatar">
+                                    <img src="https://avatars.githubusercontent.com/u/6265267?v=4" alt="User Avatar">
+                                </div>
+
+                                <div class="thread">
+                                    <div class="title">
+                                        <a href="#">Lorem Ipsum dolor sit amet...</a>
+                                    </div>
+
+                                    <div class="user">
+                                        Created by <a href="#">TestUser123</a>
+                                    </div>
+
+                                    <div class="category">in <a href="#">First Category</a></div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="avatar">
+                                    <img src="https://avatars.githubusercontent.com/u/6265267?v=4" alt="User Avatar">
+                                </div>
+
+                                <div class="thread">
+                                    <div class="title">
+                                        <a href="#">Lorem Ipsum dolor sit amet...</a>
+                                    </div>
+
+                                    <div class="user">
+                                        Created by <a href="#">TestUser123</a>
+                                    </div>
+
+                                    <div class="category">in <a href="#">First Category</a></div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="avatar">
+                                    <img src="https://avatars.githubusercontent.com/u/6265267?v=4" alt="User Avatar">
+                                </div>
+
+                                <div class="thread">
+                                    <div class="title">
+                                        <a href="#">Lorem Ipsum dolor sit amet...</a>
+                                    </div>
+
+                                    <div class="user">
+                                        Created by <a href="#">TestUser123</a>
+                                    </div>
+
+                                    <div class="category">in <a href="#">First Category</a></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
