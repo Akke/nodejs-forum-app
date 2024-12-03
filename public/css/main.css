@@ -16,6 +16,38 @@ html {
   text-decoration: inherit;
 }
 
+button,
+input[type=submit] {
+  background-color: #AE445A;
+  padding: 12px 24px;
+  border-radius: 12px;
+  color: #fff;
+  font-weight: bold;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s background-color ease;
+  font-family: inherit;
+  font-size: inherit;
+}
+button:hover,
+input[type=submit]:hover {
+  background-color: #893647;
+}
+
+input[type=text],
+input[type=password] {
+  background-color: #24283b;
+  padding: 12px 24px;
+  border-radius: 12px;
+  color: #fff;
+  outline: none;
+  border: none;
+  transition: 0.2s background-color ease;
+  font-family: inherit;
+  font-size: inherit;
+}
+
 .wrapper {
   width: 100%;
   display: flex;
@@ -193,12 +225,30 @@ html {
 .wrapper .main-container .logout {
   padding: 24px;
 }
-.wrapper .main-container .login-container .form-errors {
-  margin-bottom: 24px;
+.wrapper .main-container .login-container {
+  padding: 24px;
+}
+.wrapper .main-container .login-container form {
+  display: flex;
+  flex-direction: column;
+}
+.wrapper .main-container .login-container form input {
+  margin-bottom: 12px;
+}
+.wrapper .main-container .login-container .form-success {
+  background-color: #3a643a;
+  padding: 12px;
+  border-radius: 12px;
+  color: #fff;
+  font-weight: bold;
+  margin: 0 0 24px 0;
+}
+.wrapper .main-container .login-container .form-success:empty {
+  display: none;
 }
 .wrapper .main-container .login-container .form-errors ul {
   list-style-type: none;
-  margin: 0;
+  margin: 0 0 24px 0;
   background-color: #9b3232;
   border-radius: 12px;
   padding: 12px;

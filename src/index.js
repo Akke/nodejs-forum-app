@@ -37,6 +37,10 @@ app.get("/logout", (req, res) => {
     return res.sendFile(path.join(__dirname, "../public/logout.html"))
 })
 
+app.get("/register", (req, res) => {
+    return res.sendFile(path.join(__dirname, "../public/register.html"))
+})
+
 // Start our application
 app.listen(PORT, () => {
     console.log(`Application running and listening on port ${PORT}.`)

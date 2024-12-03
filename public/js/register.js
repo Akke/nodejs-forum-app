@@ -3,20 +3,27 @@ if(localStorage.getItem("user")) {
     window.location.href = "/"
 }
 
-const API_URL_LOGIN = "http://localhost:5000/api/auth/sign"
+const API_URL_REGISTER = "http://localhost:5000/api/user"
 
 const loginForm = document.querySelector(".login-container form")
 loginForm.addEventListener("submit", async (e) => {
     e.preventDefault()
     clearFormErrors()
+    clearFormSuccessMessage()
 
     const formData = new FormData(loginForm)
     
     const username = formData.get("username")
     const password = formData.get("password")
+    const passwordVerify = formData.get("verify_password")
+
+    if(password !== passwordVerify) {
+        createFormError("Passwords do not match.")
+        return
+    }
 
     try {
-        const request = await axios.post(API_URL_LOGIN, {
+        const request = await axios.post(API_URL_REGISTER, {
             username: username,
             password: password
         }, {
@@ -25,18 +32,9 @@ loginForm.addEventListener("submit", async (e) => {
             }
         })
     
-        if(request.status == 200) {
-            const data = request.data
-            if(data) {
-                const token = data.token
-                if(token) {
-                    document.cookie = `jwt=${token}; path=/; Secure; SameSite=Strict`
-                    setUserData()
-                    setTimeout(() => {
-                        window.location.href = "/"
-                    }, 500)
-                }
-            }
+        if(request.status == 201) {
+            createFormSucessMessage("User has been created successfully.")
+            loginForm.reset()
         }
     } catch(error) {
         const messages = error.response.data.messages
@@ -61,5 +59,19 @@ function clearFormErrors() {
     const errorContainer = document.querySelector(".form-errors ul")
     if(errorContainer) {
         errorContainer.innerHTML = ""
+    }
+}
+
+function createFormSucessMessage(text) {
+    const successContainer = document.querySelector(".form-success")
+    if(successContainer) {
+        successContainer.innerHTML = text
+    }
+}
+
+function clearFormSuccessMessage() {
+    const successContainer = document.querySelector(".form-success")
+    if(successContainer) {
+        successContainer.innerHTML = ""
     }
 }

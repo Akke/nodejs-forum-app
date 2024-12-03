@@ -6,6 +6,11 @@ const validateCreateThread = [
         .withMessage("Author must be present and can not be omitted from the request.")
         .isMongoId()
         .withMessage("ID must be a valid MongoDB ObjectId."),
+    body("category")
+        .notEmpty()
+        .withMessage("Category must be present and can not be omitted from the request.")
+        .isMongoId()
+        .withMessage("Category must be a valid MongoDB ObjectId."),
     body("title")
         .notEmpty()
         .withMessage("Title must be present and can not be omitted from the request.")
@@ -58,7 +63,11 @@ const validateUpdateThread = [
     body("dislikes")
         .optional()
         .isInt({ min: 1 })
-        .withMessage("Dislikes must be at least 0 or higher.")
+        .withMessage("Dislikes must be at least 0 or higher."),
+    body("category")
+        .optional()
+        .isMongoId()
+        .withMessage("Category must be a valid MongoDB ObjectId."),
 ]
 
 const validateGetThread = [

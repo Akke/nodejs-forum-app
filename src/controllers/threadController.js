@@ -1,7 +1,7 @@
 const Thread = require("../models/threadModel")
 
 const createThread = async (req, res) => {
-    const { title, content, likes, dislikes } = req.body
+    const { title, content, likes, dislikes, category } = req.body
     const author = req.user.id
 
     try {
@@ -10,7 +10,8 @@ const createThread = async (req, res) => {
             title: title,
             content: content,
             likes: likes,
-            dislikes: dislikes
+            dislikes: dislikes,
+            category: category
         })
 
         const doc = await newThread.save()
@@ -48,7 +49,7 @@ const deleteThread = async (req, res) => {
 
 const updateThread = async (req, res) => {
     const { id } = req.params
-    const { title, content, likes, dislikes } = req.body
+    const { title, content, likes, dislikes, category } = req.body
 
     if(Object.keys(req.body).length < 1) {
         return res.status(400).json({ messages: [`Request body is empty.`] })
@@ -72,6 +73,7 @@ const updateThread = async (req, res) => {
         if(content) dataObj.content = content
         if(likes) dataObj.likes = likes
         if(dislikes) dataObj.dislikes = dislikes
+        if(category) dataObj.category = category
 
         const updatedThread = await Thread.findOneAndUpdate({ _id: id}, { $set: dataObj }, { new: true })
 

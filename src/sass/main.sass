@@ -16,6 +16,35 @@ html
     color: inherit
     text-decoration: inherit
 
+button,
+input[type="submit"]
+    background-color: $theme-color
+    padding: 12px 24px
+    border-radius: 12px
+    color: #fff
+    font-weight: bold
+    outline: none
+    border: none
+    cursor: pointer
+    transition: 0.2s background-color ease
+    font-family: inherit
+    font-size: inherit
+
+    &:hover
+        background-color: darken($theme-color, 10%)
+
+input[type="text"],
+input[type="password"]
+    background-color: $background-secondary-color
+    padding: 12px 24px
+    border-radius: 12px
+    color: #fff
+    outline: none
+    border: none
+    transition: 0.2s background-color ease
+    font-family: inherit
+    font-size: inherit
+
 .wrapper
     width: 100%
     display: flex
@@ -196,12 +225,30 @@ html
             padding: 24px
         
         .login-container
-            .form-errors
-                margin-bottom: 24px
+            padding: 24px
 
+            form
+                display: flex
+                flex-direction: column
+
+                input
+                    margin-bottom: 12px
+
+            .form-success
+                background-color: #3a643a
+                padding: 12px
+                border-radius: 12px
+                color: #fff
+                font-weight: bold
+                margin: 0 0 24px 0
+
+                &:empty
+                    display: none
+            
+            .form-errors
                 ul
                     list-style-type: none
-                    margin: 0
+                    margin: 0 0 24px 0
                     background-color: #9b3232
                     border-radius: 12px
                     padding: 12px

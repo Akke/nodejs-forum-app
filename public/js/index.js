@@ -1,11 +1,11 @@
 
-const API_URL = "http://localhost:5000/api"
+const API_URL_CATEGORIES_GET = "http://localhost:5000/api/category"
 
 async function loadCategories() {
     const categoryContainer = document.querySelector(".forum-categories ul")
 
     try {
-        const request = await axios.get(`${API_URL}/category`)
+        const request = await axios.get(API_URL_CATEGORIES_GET)
         if(request.status == 200) {
             const categories = request.data
 
