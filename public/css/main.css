@@ -185,6 +185,23 @@ html {
 .wrapper .main-container .section-header .fa {
   margin-right: 12px;
 }
+.wrapper .main-container .login-container .form-errors {
+  margin-bottom: 24px;
+}
+.wrapper .main-container .login-container .form-errors ul {
+  list-style-type: none;
+  margin: 0;
+  background-color: #9b3232;
+  border-radius: 12px;
+  padding: 12px;
+  color: #fff;
+}
+.wrapper .main-container .login-container .form-errors ul:empty {
+  display: none;
+}
+.wrapper .main-container .login-container .form-errors ul li {
+  font-weight: bold;
+}
 .wrapper .main-container .inner-container {
   display: flex;
   flex-direction: row;

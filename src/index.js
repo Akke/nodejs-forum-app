@@ -17,14 +17,21 @@ app.use(express.static("../public"))
 const authRoute = require("./routes/authRoutes")
 const userRoute = require("./routes/userRoutes")
 const threadRoute = require("./routes/threadRoutes")
+const categoryRoute = require("./routes/categoryRoutes")
 
 // Set up our routes
 app.use("/api/auth", authRoute)
 app.use("/api/user", userRoute)
 app.use("/api/thread", threadRoute)
+app.use("/api/category", categoryRoute)
 
 app.get("/", (req, res) => {
     return res.sendFile(path.join(__dirname, "../public/index.html"))
+})
+
+app.get("/login", (req, res) => {
+    console.log(req.user)
+    return res.sendFile(path.join(__dirname, "../public/login.html"))
 })
 
 // Start our application
