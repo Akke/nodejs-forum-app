@@ -41,6 +41,11 @@ app.get("/register", (req, res) => {
     return res.sendFile(path.join(__dirname, "../public/register.html"))
 })
 
+// /new must come before /:id or it won't be accessible
+app.get("/category/new", (req, res) => {
+    return res.sendFile(path.join(__dirname, "../public/category_new.html"))
+})
+
 app.get("/category/:id", (req, res) => {
     return res.sendFile(path.join(__dirname, "../public/category.html"))
 })

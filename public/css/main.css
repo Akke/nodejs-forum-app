@@ -227,6 +227,12 @@ select {
   font-size: 1.5em;
   font-weight: bold;
   color: #fff;
+  display: flex;
+  align-items: center;
+}
+.wrapper .main-container .section-header .new-category {
+  font-size: 1rem;
+  margin-left: auto;
 }
 .wrapper .main-container .section-header .fa {
   margin-right: 12px;
@@ -308,10 +314,12 @@ select {
 .wrapper .main-container .inner-container .left-container .form-errors ul li {
   font-weight: bold;
 }
-.wrapper .main-container .inner-container .left-container .thread-create-form {
+.wrapper .main-container .inner-container .left-container .thread-create-form,
+.wrapper .main-container .inner-container .left-container .category-create-form {
   padding: 24px;
 }
-.wrapper .main-container .inner-container .left-container .thread-create-form form {
+.wrapper .main-container .inner-container .left-container .thread-create-form form,
+.wrapper .main-container .inner-container .left-container .category-create-form form {
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -396,6 +404,9 @@ select {
 .wrapper .main-container .inner-container .left-container .categories-threads .new-thread {
   margin-bottom: 24px;
   display: block;
+}
+.wrapper .main-container .inner-container .left-container .categories-threads .new-thread .fa {
+  margin-right: 12px;
 }
 .wrapper .main-container .inner-container .left-container .categories-threads ul {
   list-style-type: none;

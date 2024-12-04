@@ -225,6 +225,12 @@ select
             font-size: 1.5em
             font-weight: bold
             color: $text-link-color
+            display: flex
+            align-items: center
+
+            .new-category
+                font-size: 1rem
+                margin-left: auto
 
             .fa
                 margin-right: 12px
@@ -308,7 +314,8 @@ select
                         li
                             font-weight: bold
 
-                .thread-create-form
+                .thread-create-form, 
+                .category-create-form
                     padding: 24px
 
                     form
@@ -397,6 +404,9 @@ select
                     .new-thread
                         margin-bottom: 24px
                         display: block
+
+                        .fa
+                            margin-right: 12px
 
                     ul
                         list-style-type: none
