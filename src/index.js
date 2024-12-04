@@ -67,6 +67,10 @@ app.get("/members", (req, res) => {
     return res.sendFile(path.join(__dirname, "../public/members.html"))
 })
 
+app.get("/404", (req, res) => {
+    return res.sendFile(path.join(__dirname, "../public/404.html"))
+})
+
 // Start our application
 app.listen(PORT, () => {
     console.log(`Application running and listening on port ${PORT}.`)

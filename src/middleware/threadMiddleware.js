@@ -87,8 +87,8 @@ const validateGetThreads = [
         .withMessage("Skip must be at least 0 or higher."),
     query("category")
         .optional()
-        .isString()
-        .withMessage("Category must be a string."),
+        .isMongoId()
+        .withMessage("Category must be a valid MongoDB ObjectId."),
     query("sortOrder")
         .optional()
         .isIn([-1, 1])

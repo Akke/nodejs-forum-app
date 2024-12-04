@@ -257,6 +257,9 @@ select {
 .wrapper .main-container .inner-container .left-container {
   width: 70%;
 }
+.wrapper .main-container .inner-container .left-container .error-404 {
+  padding: 24px;
+}
 .wrapper .main-container .inner-container .left-container .member-list {
   margin: 24px;
 }

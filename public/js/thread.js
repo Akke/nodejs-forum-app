@@ -66,6 +66,10 @@ if(threadContainer) {
             }
         } catch(error) {
             console.log(error)
+            if(error.status == 400) {
+                window.location.href = "/404"
+                return
+            }
         }
     }
 

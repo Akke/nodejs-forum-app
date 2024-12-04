@@ -44,8 +44,7 @@ if(categoryCreateForm) {
                 })
             
                 if(request.status == 200) {
-                    categoryCreateForm.reset()
-                    window.location.href = `../${request.data._id}`
+                    window.location.href = `../${request.data.data._id}`
                 }
             }
         } catch(error) {

@@ -4,6 +4,7 @@ if(threadsContainer) {
     async function loadThreads() {
         try {
             const request = await axios.get(`http://localhost:5000/api/thread?category=${window.location.href.split("category/")[1]}`)
+            
             if(request.status == 200) {
                 const threads = request.data
     
@@ -28,6 +29,10 @@ if(threadsContainer) {
             }
         } catch(error) {
             console.log(error)
+            if(error.status == 400) {
+                window.location.href = "/404"
+                return
+            }
         }
     }
     
