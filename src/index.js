@@ -50,6 +50,10 @@ app.get("/category/:id", (req, res) => {
     return res.sendFile(path.join(__dirname, "../public/category.html"))
 })
 
+app.get("/category/:id/edit", (req, res) => {
+    return res.sendFile(path.join(__dirname, "../public/category_edit.html"))
+})
+
 // /new must come before /:id or it won't be accessible
 app.get("/threads/new", (req, res) => {
     return res.sendFile(path.join(__dirname, "../public/thread_new.html"))

@@ -401,11 +401,21 @@ select {
 .wrapper .main-container .inner-container .left-container .categories-threads {
   margin: 24px;
 }
-.wrapper .main-container .inner-container .left-container .categories-threads .new-thread {
+.wrapper .main-container .inner-container .left-container .categories-threads .action-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+}
+.wrapper .main-container .inner-container .left-container .categories-threads .action-buttons button .fa {
+  margin-right: 12px;
+}
+.wrapper .main-container .inner-container .left-container .categories-threads .action-buttons .new-thread {
   margin-bottom: 24px;
   display: block;
+  width: -moz-fit-content;
+  width: fit-content;
 }
-.wrapper .main-container .inner-container .left-container .categories-threads .new-thread .fa {
+.wrapper .main-container .inner-container .left-container .categories-threads .action-buttons .new-thread .fa {
   margin-right: 12px;
 }
 .wrapper .main-container .inner-container .left-container .categories-threads ul {

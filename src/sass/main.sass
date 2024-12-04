@@ -401,12 +401,22 @@ select
                 .categories-threads
                     margin: 24px
 
-                    .new-thread
-                        margin-bottom: 24px
-                        display: block
+                    .action-buttons
+                        display: flex
+                        flex-direction: row
+                        gap: 12px
+                        
+                        button
+                            .fa
+                                margin-right: 12px
 
-                        .fa
-                            margin-right: 12px
+                        .new-thread
+                            margin-bottom: 24px
+                            display: block
+                            width: fit-content
+
+                            .fa
+                                margin-right: 12px
 
                     ul
                         list-style-type: none
