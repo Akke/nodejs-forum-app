@@ -76,6 +76,11 @@ if(recentThreads) {
                     for(const thread of threads) {
                         const authorData = await getUserById(thread.author)
                         const categoryData = await getCategoryById(thread.category)
+                        let categoryName = "[deleted]"
+
+                        if(categoryData) {
+                            categoryName = categoryData.name
+                        }
 
                         const li = document.createElement("li")
                         li.innerHTML = `
@@ -92,7 +97,7 @@ if(recentThreads) {
                                     Created by <a href="#">${authorData.username}</a>
                                 </div>
 
-                                <div class="category">in <a href="../category/${thread.category}">${categoryData.name}</a></div>
+                                <div class="category">in <a href="../category/${thread.category}">${categoryName}</a></div>
                             </div>
                         `
 

@@ -1,8 +1,8 @@
+const id = window.location.href.split("category/")[1].split("/edit")[0]
+
 const categoryCreateForm = document.querySelector(".category-create-form form")
 
 if(categoryCreateForm) {
-    const id = window.location.href.split("category/")[1].split("/edit")[0]
-
     async function populateForm() {
         const categoryData = await getCategoryById(id)
 
@@ -59,6 +59,21 @@ if(categoryCreateForm) {
     })
 
     populateForm()
+}
+
+const deleteCategoryButton = document.querySelector(".delete-category .delete")
+
+if(deleteCategoryButton) {
+    deleteCategoryButton.addEventListener("click", async () => {
+        try {
+            const request = await axios.delete(`http://localhost:5000/api/category/${id}`)
+            if(request.status == 200) {
+                window.location.href = "/"
+            }
+        } catch(error) {
+            console.log(error)
+        }
+    })
 }
 
 

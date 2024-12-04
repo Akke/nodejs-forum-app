@@ -1,4 +1,5 @@
 const Category = require("../models/categoryModel")
+const Thread = require("../models/threadModel")
 
 const createCategory = async (req, res) => {
     const { name, displayIcon, displayColor } = req.body
@@ -30,6 +31,9 @@ const deleteCategory = async (req, res) => {
         }
 
         await findCategory.deleteOne({ _id: id })
+
+        // we also have to delete all threads in this category
+        const findThreads = await Thread.deleteMany({ category: id })
 
         res.status(200).json({ messages: [`Category ${id} (${findCategory.name}) was deleted successfully.`] })
     } catch(error) {

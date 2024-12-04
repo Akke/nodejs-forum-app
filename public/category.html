@@ -110,6 +110,11 @@
                                             breadcrumbCategory.innerHTML = `<a href="#">${response.data.name}</a>`
                                         }
                                     })
+                                    .catch((error) => {
+                                        if(error.status == 404) {
+                                            window.location.href = "../404"
+                                        }
+                                    })
                             }
                         </script>
                     </div>
@@ -118,13 +123,15 @@
                         <div class="action-buttons">
                             
                             <script type="text/javascript">
-                                const actionButtons = document.querySelector(".action-buttons")
-                                const editButton = document.createElement("a")
-                                editButton.href = `http://localhost:5000/category/${window.location.href.split("category/")[1]}/edit`
-                                editButton.innerHTML = `
-                                    <button><i class="fa fa-pen"></i> Edit Category</button>
-                                `
-                                actionButtons.insertBefore(editButton, null)
+                                if(localStorage.getItem("user")) {
+                                    const actionButtons = document.querySelector(".action-buttons")
+                                    const editButton = document.createElement("a")
+                                    editButton.href = `http://localhost:5000/category/${window.location.href.split("category/")[1]}/edit`
+                                    editButton.innerHTML = `
+                                        <button><i class="fa fa-pen"></i> Edit Category</button>
+                                    `
+                                    actionButtons.insertBefore(editButton, null)
+                                }
                             </script>
     
                             <a href="../threads/new" class="new-thread">
