@@ -48,4 +48,8 @@ router.get("/404", (req, res) => {
     return res.sendFile(path.join(__dirname, "../../public/404.html"))
 })
 
+router.get("/account", (req, res) => {
+    return res.sendFile(path.join(__dirname, "../../public/account_settings.html"))
+})
+
 module.exports = router

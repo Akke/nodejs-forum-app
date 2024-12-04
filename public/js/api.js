@@ -8,6 +8,11 @@ const getUserById = async (id) => {
         if(error.code == "ECONNABORTED") return null
 
         console.log(error)
+
+        return {
+            id: -1,
+            username: "[deleted]"
+        }
     }
 
     return null

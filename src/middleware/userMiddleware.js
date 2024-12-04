@@ -27,7 +27,14 @@ const validateUpdateUser = [
     param("id")
         .isMongoId()
         .withMessage("ID must be a valid MongoDB ObjectId."),
+    body("username")
+        .optional()
+        .isAlphanumeric()
+        .withMessage("Username must be an alphanumeric value.")
+        .isLength({ min: 3, max: 15 })
+        .withMessage("Username must contain between 3 and 15 alphanumerical characters."),
     body("password")
+        .optional()
         .isString()
         .withMessage("Password must be a string.")
         .isLength({ min: 8 })

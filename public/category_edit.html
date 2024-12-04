@@ -67,7 +67,7 @@
                         const userArea = document.createElement("div")
                         userArea.classList.add("user-area")
                         userArea.innerHTML = `
-                            <div class="username">${userData.username}</div>
+                            <div class="username"><a href="../account">${userData.username}</a></div>
                             <div class="avatar">
                                 <img src="https://avatars.githubusercontent.com/u/6265267?v=4" alt="User Avatar">
                             </div>
@@ -105,7 +105,7 @@
                             <ul></ul>
                         </div>
 
-                        <form action="post" method="../api/category">
+                        <form action="patch" method="../api/category">
                             <input type="text" name="name" placeholder="Category name">
                             <input type="text" name="displayIcon" placeholder="Icon name (Font Awesome)">
                             <input type="text" name="displayColor" placeholder="Icon color (e.g. #FFFFFF)">

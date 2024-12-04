@@ -8,7 +8,6 @@ const signAuth = async (req, res) => {
     const { username, password } = req.body
 
     try {
-
         const findUser = await User.findOne({ username: username })
         if(!findUser) {
             return res.status(401).json({ messages: [`Could not find user ${username}.`] })

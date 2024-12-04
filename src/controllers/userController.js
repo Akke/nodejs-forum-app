@@ -55,7 +55,7 @@ const deleteUser = async (req, res) => {
 
 const updateUser = async (req, res) => {
     const { id } = req.params
-    const { password } = req.body
+    const { password, username } = req.body
 
     if(req.user.id !== id) {
         return res.status(401).json({ messages: [`Access denied.`] })
@@ -67,9 +67,14 @@ const updateUser = async (req, res) => {
             return res.status(404).json({ messages: [`User ${id} could not be found.`] })
         }
 
+        const dataObj = {}
+
+        if(password) dataObj.password = password
+        if(username) dataObj.username = username
+
         // schema.pre() does not seem to work with findByIdAndUpdate so we use findOneAndUpdate instead
         // this is required so that the password can be hashed before it's saved
-        const updatedUser = await User.findOneAndUpdate({ _id: id}, { $set: { password } })
+        const updatedUser = await User.findOneAndUpdate({ _id: id }, { $set: dataObj })
 
         res.status(200).json({ messages: [`User ${id} was updated successfully.`] })
     } catch(error) {
