@@ -1,4 +1,4 @@
-const { body, param } = require("express-validator")
+const { body, param, query } = require("express-validator")
 
 const validateCreateCategory = [
     body("name")
@@ -58,14 +58,14 @@ const validateGetCategory = [
 ]
 
 const validateGetCategories = [
-    param("limit")
+    query("limit")
         .optional()
         .isInt({ min: 1 })
         .withMessage("Limit must be at least 1 or higher."),
-    param("skip")
+    query("skip")
         .optional()
         .isInt({ min: 0 })
-        .withMessage("Limit must be at least 0 or higher.")
+        .withMessage("Skip must be at least 0 or higher.")
 ]
 
 module.exports = {

@@ -61,3 +61,45 @@ if(categoryContainer) {
     
     loadCategories()
 }
+
+const recentThreads = document.querySelector(".recent-threads ul")
+
+if(recentThreads) {
+    async function loadRecentThreads() {
+        const request = await axios.get("http://localhost:5000/api/thread?limit=5&sortOrder=-1")
+
+        if(request.status == 200) {
+            const threads = request.data
+
+            if(threads) {
+                for(const thread of threads) {
+                    const authorData = await getUserById(thread.author)
+                    const categoryData = await getCategoryById(thread.category)
+
+                    const li = document.createElement("li")
+                    li.innerHTML = `
+                        <div class="avatar">
+                            <img src="https://avatars.githubusercontent.com/u/6265267?v=4" alt="User Avatar">
+                        </div>
+
+                        <div class="thread">
+                            <div class="title">
+                                <a href="../threads/${thread._id}">${thread.title}</a>
+                            </div>
+
+                            <div class="user">
+                                Created by <a href="#">${authorData.username}</a>
+                            </div>
+
+                            <div class="category">in <a href="../category/${thread.category}">${categoryData.name}</a></div>
+                        </div>
+                    `
+
+                    recentThreads.insertBefore(li, null)
+                }
+            }
+        }
+    }
+
+    loadRecentThreads()
+}

@@ -11,8 +11,6 @@ function getCookie(name) {
 // we can store that data in localStorage to later check if the user is logged in 
 // (and also get their data)
 async function setUserData() {
-    if(localStorage.getItem("user")) return // no need to call it if we are already logged in
-
     const jwt = getCookie("jwt")
 
     if(jwt) {
@@ -22,6 +20,7 @@ async function setUserData() {
                     "Authorization": `Bearer ${jwt}`
                 }
             })
+
             if(request.status == 200) {
                 const data = request.data
                 if(data) {
@@ -29,6 +28,7 @@ async function setUserData() {
                 }
             }
         } catch(error) {
+            if(error.code == "ECONNABORTED") return
             console.log("Could not check auth:", error)
         }
     } else {

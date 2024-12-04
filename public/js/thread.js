@@ -1,4 +1,5 @@
-const URL_API_THREAD_ID = `http://localhost:5000/api/thread/${window.location.href.split("threads/")[1]}`
+const URL_CURRENT_THREAD_ID = window.location.href.split("threads/")[1]
+const URL_API_THREAD_ID = `http://localhost:5000/api/thread/${URL_CURRENT_THREAD_ID}`
 const URL_API_USER = `http://localhost:5000/api/user`
 const URL_API_THREAD = `http://localhost:5000/api/thread`
 
@@ -12,6 +13,8 @@ if(threadContainer) {
                 const data = request.data
 
                 if(data) {
+                    const authorData = await getUserById(data.author)
+
                     let likesContent = ``
                     let controlsContent = ``
 
@@ -35,7 +38,7 @@ if(threadContainer) {
 
                     threadContainer.innerHTML = `
                         <div class="poster">
-                            <div class="username"><a href="#">${await getAuthor(data.author)}</a></div>
+                            <div class="username"><a href="#">${authorData.username}</a></div>
                             <div class="avatar">
                                 <img src="https://avatars.githubusercontent.com/u/6265267?v=4" alt="User Avatar">
                             </div>
@@ -53,7 +56,7 @@ if(threadContainer) {
                             <div class="footer">
                                 ${controlsContent}
 
-                                <div class="timestamp">Created at ${data.createdAt}</div>
+                                <div class="timestamp">Created at ${new Date(data.createdAt)}</div>
 
                                 ${likesContent}
                             </div>
@@ -77,11 +80,18 @@ if(threadCreateForm) {
         const createOptions = async () => {
             let options = ``
 
-            for(const category of await getCategories()) {
-                options += `<option value="${category._id}">${category.name}</option>`
+            try {
+                const categories = await getCategories()
+                if(categories) {
+                    for(const category of categories) {
+                        options += `<option value="${category._id}">${category.name}</option>`
+                    }
+        
+                    select.innerHTML = options
+                }
+            } catch(error) {
+                console.log(error)
             }
-
-            select.innerHTML = options
         }
 
         createOptions()
@@ -127,6 +137,7 @@ if(threadCreateForm) {
                 }
             }
         } catch(error) {
+            console.log(error)
             const messages = error.response.data.messages
             if(messages) {
                 for(const message of messages) {
@@ -152,15 +163,8 @@ async function updateBreadcrumbs() {
     }
 
     if(breadcrumbThread) {
-        breadcrumbThread.innerHTML = `<a href="#">${await getTitle()}</a>`
-    }
-}
-
-// takes user ID and returns username
-async function getAuthor(id) {
-    const request = await axios.get(`${URL_API_USER}/${id}`)
-    if(request.status == 200) {
-        return request.data.username
+        const threadData = await getThreadById(URL_CURRENT_THREAD_ID)
+        breadcrumbThread.innerHTML = `<a href="#">${threadData.title}</a>`
     }
 }
 
@@ -169,14 +173,6 @@ async function getCategoryId() {
     const request = await axios.get(URL_API_THREAD_ID)
     if(request.status == 200) {
         return request.data.category
-    }
-}
-
-// returns the name of the thread
-async function getTitle() {
-    const request = await axios.get(URL_API_THREAD_ID)
-    if(request.status == 200) {
-        return request.data.title
     }
 }
 
@@ -330,4 +326,10 @@ document.addEventListener("click", (e) => {
     }
 })
 
-updateBreadcrumbs()
+if(URL_CURRENT_THREAD_ID != "new") {
+    updateBreadcrumbs()
+} else {
+    if(!localStorage.getItem("user")) {
+        window.location.href = "../login"
+    }
+}

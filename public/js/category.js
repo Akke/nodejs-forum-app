@@ -9,6 +9,8 @@ if(threadsContainer) {
     
                 if(threads) {
                     for(const thread of threads) {
+                        const authorData = await getUserById(thread.author)
+
                         const li = document.createElement("li")
     
                         li.innerHTML = `
@@ -17,7 +19,7 @@ if(threadsContainer) {
                             </div>
                             <div class="details">
                                 <div class="title"><a href="../threads/${thread._id}">${thread.title}</a></div>
-                                <div class="author">Created by <a href="#">${await getAuthor(thread.author)}</a> at ${thread.createdAt}</div>
+                                <div class="author">Created by <a href="#">${authorData.username}</a> at ${new Date(thread.createdAt)}</div>
                             </div>
                         `
                         threadsContainer.insertBefore(li, null)
@@ -39,17 +41,3 @@ if(createThread) {
     }
 }
 
-async function getCategories() {
-    try {
-        const request = await axios.get(`http://localhost:5000/api/category`)
-
-        if(request.status == 200) {
-            const data = request.data
-            if(data) {
-                return data
-            }
-        }
-    } catch(error) {
-        console.log(error)
-    }
-}

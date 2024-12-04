@@ -251,6 +251,38 @@ select {
 .wrapper .main-container .inner-container .left-container {
   width: 70%;
 }
+.wrapper .main-container .inner-container .left-container .member-list {
+  margin: 24px;
+}
+.wrapper .main-container .inner-container .left-container .member-list ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #24283b;
+  border-radius: 12px;
+}
+.wrapper .main-container .inner-container .left-container .member-list ul li {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  padding: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  align-items: center;
+}
+.wrapper .main-container .inner-container .left-container .member-list ul li:last-child {
+  border: none;
+}
+.wrapper .main-container .inner-container .left-container .member-list ul li .avatar {
+  height: 48px;
+}
+.wrapper .main-container .inner-container .left-container .member-list ul li .avatar img {
+  height: 100%;
+  border-radius: 12px;
+}
+.wrapper .main-container .inner-container .left-container .member-list ul li .username a {
+  font-weight: bold;
+  color: #fff;
+}
 .wrapper .main-container .inner-container .left-container .form-success {
   background-color: #3a643a;
   padding: 12px;

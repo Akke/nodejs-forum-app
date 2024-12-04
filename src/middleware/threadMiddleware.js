@@ -77,14 +77,22 @@ const validateGetThread = [
 ]
 
 const validateGetThreads = [
-    param("limit")
+    query("limit")
         .optional()
         .isInt({ min: 1 })
         .withMessage("Limit must be at least 1 or higher."),
-    param("skip")
+    query("skip")
         .optional()
         .isInt({ min: 0 })
-        .withMessage("Limit must be at least 0 or higher.")
+        .withMessage("Skip must be at least 0 or higher."),
+    query("category")
+        .optional()
+        .isString()
+        .withMessage("Category must be a string."),
+    query("sortOrder")
+        .optional()
+        .isIn([-1, 1])
+        .withMessage("SortOrder must be either -1 or 1")
 ]
 
 module.exports = {

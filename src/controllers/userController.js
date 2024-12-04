@@ -79,11 +79,29 @@ const updateUser = async (req, res) => {
     }
 }
 
+const getUsers = async (req, res) => {
+    const { limit, skip } = req.query
+
+    try {
+        const findUsers = await User.find({}, { password: 0 }, { 
+            skip: skip ? skip : 0, 
+            limit: limit ? limit : 15 
+        })
+
+        res.status(200).json(findUsers)
+    } catch(error) {
+        // other server error
+        console.log(error)
+        res.status(500).send("Server Error")
+    }
+}
+
+
 const getUser = async (req, res) => {
     const { id } = req.params 
 
     try {
-        const findUser = await User.findById(id)
+        const findUser = await User.findById(id, { password: 0 })
         if(!findUser) {
             return res.status(404).json({ messages: [`User ${id} could not be found.`] })
         }
@@ -100,5 +118,6 @@ module.exports = {
     createUser,
     deleteUser,
     updateUser,
-    getUser
+    getUser,
+    getUsers
 }

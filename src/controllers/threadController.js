@@ -103,15 +103,15 @@ const getThread = async (req, res) => {
 }
 
 const getThreads = async (req, res) => {
-    const { limit, skip, category } = req.query
+    const { limit, skip, category, sortOrder } = req.query
 
     try {
         let query = category ? { category: category } : {}
 
         const findThreads = await Thread.find(query, {}, { 
             skip: skip ? skip : 0, 
-            limit: limit ? limit : 15 
-        })
+            limit: limit ? limit : 15
+        }).sort({ createdAt: sortOrder ? parseInt(sortOrder) : 1 })
 
         res.status(200).json(findThreads)
     } catch(error) {

@@ -1,4 +1,4 @@
-const { body, param } = require("express-validator")
+const { body, param, query } = require("express-validator")
 
 const validateCreateUser = [
     body("username")
@@ -40,9 +40,21 @@ const validateGetUser = [
         .withMessage("ID must be a valid MongoDB ObjectId.")
 ]
 
+const validateGetUsers = [
+    query("limit")
+        .optional()
+        .isInt({ min: 1 })
+        .withMessage("Limit must be at least 1 or higher."),
+    query("skip")
+        .optional()
+        .isInt({ min: 0 })
+        .withMessage("Skip must be at least 0 or higher.")
+]
+
 module.exports = {
     validateCreateUser,
     validateDeleteUser,
     validateUpdateUser,
-    validateGetUser
+    validateGetUser,
+    validateGetUsers
 }
