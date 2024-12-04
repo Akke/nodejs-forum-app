@@ -154,12 +154,20 @@ async function updateBreadcrumbs() {
     const breadcrumbThread = document.querySelector(".breadcrumbs .current")
 
     if(breadcrumbCategory) {
-        axios.get(`http://localhost:5000/api/category/${await getCategoryId()}`)
-            .then((response) => {
-                if(response.data) {
-                    breadcrumbCategory.innerHTML = `<a href="../category/${response.data._id}">${response.data.name}</a>`
+        try {
+            const id = await getCategoryId()
+            const request = await axios.get(`http://localhost:5000/api/category/${id}`)
+
+            if(request.status == 200) {
+                const data = request.data
+
+                if(data) {
+                    breadcrumbCategory.innerHTML = `<a href="../category/${data._id}">${data.name}</a>`
                 }
-            })
+            }
+        } catch(error) {
+            console.log(error)
+        }
     }
 
     if(breadcrumbThread) {

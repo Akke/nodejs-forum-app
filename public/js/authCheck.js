@@ -29,7 +29,14 @@ async function setUserData() {
             }
         } catch(error) {
             if(error.code == "ECONNABORTED") return
+
             console.log("Could not check auth:", error)
+
+            if(error.status == 401) {
+                // our token is invalid or it has expired
+                logout()
+                window.location.href = "/"
+            }
         }
     } else {
         logout()
