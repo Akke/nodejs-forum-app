@@ -1,5 +1,5 @@
 const express = require("express")
-const path = require("path")
+
 require("dotenv").config()
 
 // Connect to our database
@@ -14,62 +14,21 @@ app.use(express.json())
 app.use(express.static("../public"))
 
 // Import our routes
-const authRoute = require("./routes/authRoutes")
-const userRoute = require("./routes/userRoutes")
-const threadRoute = require("./routes/threadRoutes")
-const categoryRoute = require("./routes/categoryRoutes")
+const authRoutes = require("./routes/authRoutes")
+const userRoutes = require("./routes/userRoutes")
+const threadRoutes = require("./routes/threadRoutes")
+const categoryRoutes = require("./routes/categoryRoutes")
+const pageRoutes = require("./routes/pageRoutes")
 
 // Set up our routes
-app.use("/api/auth", authRoute)
-app.use("/api/user", userRoute)
-app.use("/api/thread", threadRoute)
-app.use("/api/category", categoryRoute)
+// API Routes
+app.use("/api/auth", authRoutes)
+app.use("/api/user", userRoutes)
+app.use("/api/thread", threadRoutes)
+app.use("/api/category", categoryRoutes)
 
-app.get("/", (req, res) => {
-    return res.sendFile(path.join(__dirname, "../public/index.html"))
-})
-
-app.get("/login", (req, res) => {
-    return res.sendFile(path.join(__dirname, "../public/login.html"))
-})
-
-app.get("/logout", (req, res) => {
-    return res.sendFile(path.join(__dirname, "../public/logout.html"))
-})
-
-app.get("/register", (req, res) => {
-    return res.sendFile(path.join(__dirname, "../public/register.html"))
-})
-
-// /new must come before /:id or it won't be accessible
-app.get("/category/new", (req, res) => {
-    return res.sendFile(path.join(__dirname, "../public/category_new.html"))
-})
-
-app.get("/category/:id", (req, res) => {
-    return res.sendFile(path.join(__dirname, "../public/category.html"))
-})
-
-app.get("/category/:id/edit", (req, res) => {
-    return res.sendFile(path.join(__dirname, "../public/category_edit.html"))
-})
-
-// /new must come before /:id or it won't be accessible
-app.get("/threads/new", (req, res) => {
-    return res.sendFile(path.join(__dirname, "../public/thread_new.html"))
-})
-
-app.get("/threads/:id", (req, res) => {
-    return res.sendFile(path.join(__dirname, "../public/thread.html"))
-})
-
-app.get("/members", (req, res) => {
-    return res.sendFile(path.join(__dirname, "../public/members.html"))
-})
-
-app.get("/404", (req, res) => {
-    return res.sendFile(path.join(__dirname, "../public/404.html"))
-})
+// Front-end page routes
+app.use("/", pageRoutes)
 
 // Start our application
 app.listen(PORT, () => {
