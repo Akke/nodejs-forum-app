@@ -6,6 +6,13 @@ const createUser = async (req, res) => {
     const { username, password } = req.body
 
     try {
+        // this should not be necessary
+        // but for some reason the { unique: true } field in the schema stopped working
+        const findUser = await User.findOne({ username: username })
+        if(findUser) {
+            return res.status(400).json({ messages: [`Username already exists.`] })
+        }
+
         const newUser = new User({
             username: username,
             password: password
@@ -65,6 +72,13 @@ const updateUser = async (req, res) => {
         const findUser = await User.findById(id)
         if(!findUser) {
             return res.status(404).json({ messages: [`User ${id} could not be found.`] })
+        }
+
+        // this should not be necessary
+        // but for some reason the { unique: true } field in the schema stopped working
+        const findUsername = await User.findOne({ username: username })
+        if(findUsername) {
+            return res.status(400).json({ messages: [`Username already exists.`] })
         }
 
         const dataObj = {}
