@@ -19,7 +19,7 @@ if(threadsContainer) {
                             </div>
                             <div class="details">
                                 <div class="title"><a href="../threads/${thread._id}">${thread.title}</a></div>
-                                <div class="author">Created by <a href="#">${authorData.username}</a> at ${new Date(thread.createdAt)}</div>
+                                <div class="author">Created by <a href="#">${authorData.username}</a> at ${createDateTime(thread.createdAt)}</div>
                             </div>
                         `
                         threadsContainer.insertBefore(li, null)

@@ -17,7 +17,7 @@ if(memberListContainer) {
                                 <img src="https://avatars.githubusercontent.com/u/6265267?v=4" alt="User Avatar">
                             </div>
                             <div class="username"><a href="#">${user.username}</a></div>
-                            <div class="created-date">Created at ${new Date(user.createdAt)}</div>
+                            <div class="created-date">Created at ${createDateTime(user.createdAt)}</div>
                         `
 
                         memberListContainer.insertBefore(li, null)

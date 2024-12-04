@@ -56,7 +56,7 @@ if(threadContainer) {
                             <div class="footer">
                                 ${controlsContent}
 
-                                <div class="timestamp">Created at ${new Date(data.createdAt)}</div>
+                                <div class="timestamp">Created at ${createDateTime(data.createdAt)}</div>
 
                                 ${likesContent}
                             </div>
