@@ -36,7 +36,9 @@ input[type=submit]:hover {
 }
 
 input[type=text],
-input[type=password] {
+input[type=password],
+textarea,
+select {
   background-color: #24283b;
   padding: 12px 24px;
   border-radius: 12px;
@@ -46,6 +48,13 @@ input[type=password] {
   transition: 0.2s background-color ease;
   font-family: inherit;
   font-size: inherit;
+}
+
+.contenteditable {
+  border: 3px solid #AE445A;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 12px;
+  border-radius: 12px;
 }
 
 .wrapper {
@@ -235,7 +244,14 @@ input[type=password] {
 .wrapper .main-container .login-container form input {
   margin-bottom: 12px;
 }
-.wrapper .main-container .login-container .form-success {
+.wrapper .main-container .inner-container {
+  display: flex;
+  flex-direction: row;
+}
+.wrapper .main-container .inner-container .left-container {
+  width: 70%;
+}
+.wrapper .main-container .inner-container .left-container .form-success {
   background-color: #3a643a;
   padding: 12px;
   border-radius: 12px;
@@ -243,10 +259,10 @@ input[type=password] {
   font-weight: bold;
   margin: 0 0 24px 0;
 }
-.wrapper .main-container .login-container .form-success:empty {
+.wrapper .main-container .inner-container .left-container .form-success:empty {
   display: none;
 }
-.wrapper .main-container .login-container .form-errors ul {
+.wrapper .main-container .inner-container .left-container .form-errors ul {
   list-style-type: none;
   margin: 0 0 24px 0;
   background-color: #9b3232;
@@ -254,18 +270,19 @@ input[type=password] {
   padding: 12px;
   color: #fff;
 }
-.wrapper .main-container .login-container .form-errors ul:empty {
+.wrapper .main-container .inner-container .left-container .form-errors ul:empty {
   display: none;
 }
-.wrapper .main-container .login-container .form-errors ul li {
+.wrapper .main-container .inner-container .left-container .form-errors ul li {
   font-weight: bold;
 }
-.wrapper .main-container .inner-container {
-  display: flex;
-  flex-direction: row;
+.wrapper .main-container .inner-container .left-container .thread-create-form {
+  padding: 24px;
 }
-.wrapper .main-container .inner-container .left-container {
-  width: 70%;
+.wrapper .main-container .inner-container .left-container .thread-create-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 .wrapper .main-container .inner-container .left-container .thread-container {
   background-color: #24283b;
@@ -299,9 +316,22 @@ input[type=password] {
 .wrapper .main-container .inner-container .left-container .thread-container .body {
   width: 80%;
 }
+.wrapper .main-container .inner-container .left-container .thread-container .body .saveEdit {
+  display: none;
+}
 .wrapper .main-container .inner-container .left-container .thread-container .body .footer {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  gap: 24px;
+}
+.wrapper .main-container .inner-container .left-container .thread-container .body .footer .controls ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
 }
 .wrapper .main-container .inner-container .left-container .thread-container .body .footer .timestamp {
   font-size: 0.9em;
@@ -333,6 +363,7 @@ input[type=password] {
 }
 .wrapper .main-container .inner-container .left-container .categories-threads .new-thread {
   margin-bottom: 24px;
+  display: block;
 }
 .wrapper .main-container .inner-container .left-container .categories-threads ul {
   list-style-type: none;

@@ -1,5 +1,3 @@
-const API_URL_GET_AUTH = "http://localhost:5000/api/auth"
-
 function getCookie(name) {
     const value = `; ${document.cookie}`
     const parts = value.split(`; ${name}=`)
@@ -11,7 +9,7 @@ async function setUserData() {
 
     if(jwt) {
         try {
-            const request = await axios.get(API_URL_GET_AUTH, {
+            const request = await axios.get("http://localhost:5000/api/auth", {
                 headers: {
                     "Authorization": `Bearer ${jwt}`
                 }

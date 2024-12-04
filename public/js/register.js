@@ -3,8 +3,6 @@ if(localStorage.getItem("user")) {
     window.location.href = "/"
 }
 
-const API_URL_REGISTER = "http://localhost:5000/api/user"
-
 const loginForm = document.querySelector(".login-container form")
 loginForm.addEventListener("submit", async (e) => {
     e.preventDefault()
@@ -23,7 +21,7 @@ loginForm.addEventListener("submit", async (e) => {
     }
 
     try {
-        const request = await axios.post(API_URL_REGISTER, {
+        const request = await axios.post("http://localhost:5000/api/user", {
             username: username,
             password: password
         }, {
@@ -46,32 +44,3 @@ loginForm.addEventListener("submit", async (e) => {
     }
 })
 
-function createFormError(text) {
-    const errorContainer = document.querySelector(".form-errors ul")
-    if(errorContainer) {
-        const li = document.createElement("li")
-        li.innerHTML = text
-        errorContainer.insertBefore(li, null)
-    }
-}
-
-function clearFormErrors() {
-    const errorContainer = document.querySelector(".form-errors ul")
-    if(errorContainer) {
-        errorContainer.innerHTML = ""
-    }
-}
-
-function createFormSucessMessage(text) {
-    const successContainer = document.querySelector(".form-success")
-    if(successContainer) {
-        successContainer.innerHTML = text
-    }
-}
-
-function clearFormSuccessMessage() {
-    const successContainer = document.querySelector(".form-success")
-    if(successContainer) {
-        successContainer.innerHTML = ""
-    }
-}
