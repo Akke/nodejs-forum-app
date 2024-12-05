@@ -10,7 +10,7 @@ const signAuth = async (req, res) => {
     try {
         const findUser = await User.findOne({ username: username })
         if(!findUser) {
-            return res.status(401).json({ messages: [`Could not find user ${username}.`] })
+            return res.status(404).json({ messages: [`Could not find user ${username}.`] })
         }
 
         const compare = await bcrypt.compare(password, findUser.password)
