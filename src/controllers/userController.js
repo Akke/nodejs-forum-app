@@ -88,9 +88,9 @@ const updateUser = async (req, res) => {
 
         // schema.pre() does not seem to work with findByIdAndUpdate so we use findOneAndUpdate instead
         // this is required so that the password can be hashed before it's saved
-        const updatedUser = await User.findOneAndUpdate({ _id: id }, { $set: dataObj })
+        const updatedUser = await User.findOneAndUpdate({ _id: id }, { $set: dataObj }, { new: true, fields: { password: 0 } })
 
-        res.status(200).json({ messages: [`User ${id} was updated successfully.`] })
+        res.status(200).json({ messages: [`User ${id} was updated successfully.`], data: updatedUser })
     } catch(error) {
         // other server error
         console.log(error)
