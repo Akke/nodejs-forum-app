@@ -18,6 +18,7 @@ const authRoutes = require("./routes/authRoutes")
 const userRoutes = require("./routes/userRoutes")
 const threadRoutes = require("./routes/threadRoutes")
 const categoryRoutes = require("./routes/categoryRoutes")
+const adminRoutes = require("./routes/adminRoutes")
 const pageRoutes = require("./routes/pageRoutes")
 
 // Set up our routes
@@ -26,6 +27,7 @@ app.use("/api/auth", authRoutes)
 app.use("/api/user", userRoutes)
 app.use("/api/thread", threadRoutes)
 app.use("/api/category", categoryRoutes)
+app.use("/api/admin", adminRoutes)
 
 // Front-end page routes
 app.use("/", pageRoutes)
